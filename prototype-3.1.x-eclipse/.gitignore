@@ -1,0 +1,10 @@
+.DS_Store
+.settings
+.springBeans
+.gradle
+bin
+
+/build
+buildSrc/build
+/spring-*/build
+target/
