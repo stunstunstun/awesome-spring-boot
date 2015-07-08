@@ -1,9 +1,0 @@
-/applicationContext-aop.xml
-/applicationContext-consts.xml
-/applicationContext-jdbc.xml
-/applicationContext-mvc.xml
-/applicationContext-scheduling.xml
-/applicationContext-servlet.xml
-/com/
-/dataconfig.properties
-/log4j.xml
