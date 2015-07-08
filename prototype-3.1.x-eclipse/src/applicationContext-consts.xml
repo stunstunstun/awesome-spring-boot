@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+    
+	<!-- Configuration siteConst setting  -->
+	<bean id="siteConstService" class="com.jce.mvc.commons.service.SiteConstService" scope="singleton" >
+		<property name="SITECONST_PUBLIC">
+			<map>
+				<entry key="DOMAIN" value="http://mvc.joycity.com" />
+				<entry key="DOMAIN_CONT" value="http://mvc-cont.joycity.com" />
+				<entry key="DOMAIN_WWW" value="http://www2.joycity.com" />
+				<entry key="DOMAIN_SIMAGE" value="http://imgdg.joycity.com" />
+				<entry key="DOMAIN_UIMAGE" value="http://img.joycity.com" />
+				<entry key="DOMAIN_PIMAGE" value="http://imgfile.joycity.com" />
+				<entry key="SITE_CODE" value="20" />
+			</map>
+		</property>
+		<property name="SITECONST_SECURE">
+			<map>
+				<entry key="COOKIE_DOMAIN" value=".joycity.com" />
+				<entry key="CRYPTOKEY" value="jce1234" />
+				<entry key="TRAFFIC_QUEUE_SIZE" value="50" />
+				<entry key="TRAFFIC_COUNT" value="40" />
+				<entry key="TRAFFIC_PAGE" value="/common/error/traffic" />
+				<entry key="DEFAULT_ERROR" value="/common/error/default" />
+				<entry key="NOT_FOUND" value="/common/error/not_found" />
+				<entry key="JSON_ERROR" value="/common/error/json" />
+			</map>
+		</property>
+		
+	</bean>
+    
+</beans>
