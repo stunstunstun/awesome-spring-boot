@@ -2,9 +2,8 @@
 <beans 	xmlns="http://www.springframework.org/schema/beans"
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
-    
 	<!-- Configuration siteConst setting  -->
-	<bean id="siteConstService" class="com.jce.mvc.commons.service.SiteConstService" scope="singleton" >
+	<bean id="siteConstService" class="com.stunstun.spring.mvc.commons.service.SiteConstService" scope="singleton" >
 		<property name="SITECONST_PUBLIC">
 			<map>
 				<entry key="DOMAIN" value="http://mvc.joycity.com" />
@@ -28,7 +27,5 @@
 				<entry key="JSON_ERROR" value="/common/error/json" />
 			</map>
 		</property>
-		
 	</bean>
-    
 </beans>

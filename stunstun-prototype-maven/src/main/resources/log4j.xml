@@ -34,7 +34,7 @@
         <level value="WARN"/>
     </logger>
 
-    <logger name="com.jce">
+    <logger name="com.stunstun">
         <level value="INFO"/>
     </logger>
 

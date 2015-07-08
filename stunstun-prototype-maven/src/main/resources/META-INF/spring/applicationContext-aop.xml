@@ -29,10 +29,10 @@
 
 	<!-- proxy-target-class="true" -->
 	<!-- Logging -->
-	<bean id="loggingAdvice" class="com.jce.mvc.commons.support.handler.LoggingAdvice" />
+	<bean id="loggingAdvice" class="com.stunstun.spring.mvc.commons.support.handler.LoggingAdvice" />
 	
 	<aop:config>
-		<aop:pointcut id="serviceOperation"	expression="execution(* com.jce..*Service.*(..)) || execution(* com.jce..*Repository.*(..)) "/>
+		<aop:pointcut id="serviceOperation"	expression="execution(* com.stunstun..*Service.*(..)) || execution(* com.stunstun..*Repository.*(..)) "/>
 		<aop:aspect ref="loggingAdvice">
 			<aop:around pointcut-ref="serviceOperation"	method="logOperations" />
 		</aop:aspect>

@@ -8,7 +8,7 @@
 	<!-- Configures the @Controller programming model -->
 	<mvc:annotation-driven>
 		<mvc:argument-resolvers>
-			<bean class="com.jce.mvc.commons.controller.LoginSessionArgumentResolver">
+			<bean class="com.stunstun.spring.mvc.commons.controller.LoginSessionArgumentResolver">
 				<property name="authContext" ref="thAuthContext" />
 			</bean>
 		</mvc:argument-resolvers>
@@ -18,7 +18,7 @@
 	<mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/sample/**"/>
-			<bean class="com.jce.mvc.commons.interceptor.RequestInterceptor" />
+			<bean class="com.stunstun.spring.mvc.commons.interceptor.RequestInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 	

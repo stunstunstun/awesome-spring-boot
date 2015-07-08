@@ -9,12 +9,12 @@
 
  	<!-- Spring Component beans scan -->
 	<context:annotation-config />
-	<context:component-scan base-package="com.jce.mvc, com.jce.joycity" >
-		<context:exclude-filter type="annotation" expression="com.jce.mvc.commons.annotation.OnlyTestComponent" />
+	<context:component-scan base-package="com.stunstun.spring.mvc.commons, com.stunstun.example" >
+		<context:exclude-filter type="annotation" expression="com.stunstun.spring.mvc.commons.annotation.OnlyTestComponent" />
 	</context:component-scan>
 	
 	<!-- Exception resolver -->
-	<bean id="exceptionResolver" class="com.jce.mvc.commons.support.handler.LoggingExceptionResolver">
+	<bean id="exceptionResolver" class="com.stunstun.spring.mvc.commons.support.handler.LoggingExceptionResolver">
 		<property name="order" value="#{T(org.springframework.core.Ordered).HIGHEST_PRECEDENCE}" />
 	</bean>
 	
@@ -30,7 +30,7 @@
 	    <property name="defaultViews">
 	        <list>
 	            <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
-	            <bean class="com.jce.mvc.commons.view.JSONPView" />
+	            <bean class="com.stunstun.spring.mvc.commons.view.JSONPView" />
 	        </list>
 	    </property>
 	    <property name="ignoreAcceptHeader" value="true" />
