@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	default-autowire="byName"
+		xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+ 	<!-- Spring Component beans scan -->
+	<context:component-scan base-package="com.jce.mvc, com.jce.joycity" />
+	<context:annotation-config />
+	
+	<!-- Configuration freemarker setting  -->
+	<bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/template/" />
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="number_format">0.##########</prop>
+			</props>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">  
+		<property name="contentType" value="text/html; charset=UTF-8" />	  
+	    <property name="suffix" value=".ftl" />  
+    </bean>
+    <!--//-->
+    
+    <!-- Configurations -->
+    <import resource="applicationContext-mvc.xml" />
+    <import resource="applicationContext-consts.xml" />
+    <import resource="applicationContext-aop.xml" />
+    <import resource="applicationContext-jdbc.xml" />
+</beans>

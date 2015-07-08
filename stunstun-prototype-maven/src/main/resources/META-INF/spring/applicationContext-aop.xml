@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	    xmlns:p="http://www.springframework.org/schema/p"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:aop="http://www.springframework.org/schema/aop"
+		xmlns:cache="http://www.springframework.org/schema/cache"		
+		xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd 		
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+
+	<!-- Process cache annotations -->
+	<cache:annotation-driven />
+
+	<!-- generic cache manager configuration-->
+	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
+		<property name="caches">
+			<set>
+				<bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="checkcount" />
+			</set>
+		</property>
+	</bean>
+	
+ 	<!-- Enable @AspectJ support-->
+	<aop:aspectj-autoproxy />
+
+	<!-- proxy-target-class="true" -->
+	<!-- Logging -->
+	<bean id="loggingAdvice" class="com.jce.mvc.commons.support.handler.LoggingAdvice" />
+	
+	<aop:config>
+		<aop:pointcut id="serviceOperation"	expression="execution(* com.jce..*Service.*(..)) || execution(* com.jce..*Repository.*(..)) "/>
+		<aop:aspect ref="loggingAdvice">
+			<aop:around pointcut-ref="serviceOperation"	method="logOperations" />
+		</aop:aspect>
+	</aop:config>
+
+	<aop:config>
+		<aop:aspect ref="loggingAdvice">
+			<aop:after-throwing throwing="exception" pointcut-ref="serviceOperation" method="logException"/>
+		</aop:aspect>
+	</aop:config>
+
+</beans>
