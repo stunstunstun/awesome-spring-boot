@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver" />
+		<property name="url" value="jdbc:jtds:sqlserver://192.168.20.103/BBS_ProtoType2;" />
+		<property name="username" value="BBSUser" />
+		<property name="password" value="#bbsuser" />
+		<property name="initialSize" value="1" />
+		<property name="maxActive" value="200" />
+		<property name="maxIdle" value="100" />
+		<property name="minIdle" value="2" />
+		<property name="maxWait" value="5000" />
+	</bean>
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+ 		<property name="dataSource" ref="dataSource" />
+ 		<property name="queryTimeout" value="10" />
+ 	</bean>
+	
+</beans>

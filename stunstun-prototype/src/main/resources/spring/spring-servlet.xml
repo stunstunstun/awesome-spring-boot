@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- Scans the classpath of this application for @Components to deploy as beans -->
+	<context:component-scan base-package="com.jce" />
+	<context:annotation-config />
+	
+	<!-- Configuration ContentNegotiatingViewResolver -->
+	<bean id="contentNegotiatingResolver" class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+	    <property name="order" value="#{T(org.springframework.core.Ordered).HIGHEST_PRECEDENCE}" />
+	    <property name="mediaTypes">
+	        <map>
+	            <entry key="json" value="application/json" />
+	            <entry key="jsonp" value="javascript/jsonp" />
+	        </map>
+	    </property>
+	    <property name="defaultViews">
+	        <list>
+	            <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView"/>
+	            <bean class="com.jce.commons.controller.JSONPView" />
+	        </list>
+	    </property>
+	    <property name="ignoreAcceptHeader" value="true" />
+	</bean>
+
+	<!-- Configuration freemarker setting  -->
+	<bean id="freeMarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/template/" />
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="number_format">0.##########</prop>
+			</props>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>    
+	 
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">  
+		<property name="order" value="#{contentNegotiatingResolver.order+1}" />
+	    <property name="suffix" value=".ftl" /> 
+	    <property name="requestContextAttribute" value="req" />
+		<property name="contentType" value="text/html;charset=UTF-8" />
+		<property name="exposeSpringMacroHelpers" value="true" />
+    </bean>
+    <!--//-->
+    
+    <!-- Exception resolver -->
+	<bean id="exceptionResolver" class="com.jce.commons.util.LoggingExceptionResolver">
+		<property name="defaultErrorView" value="/common/default_error" />
+	</bean>
+	<!--//-->
+	
+	<!-- import configurations -->
+	<import resource="applicationContext-controller.xml" />
+	<import resource="applicationContext-const.xml" />
+	<import resource="applicationContext-aop.xml" />
+	<import resource="applicationContext-scheduling.xml" />
+	<import resource="applicationContext-jdbc.xml" />
+	
+</beans>
