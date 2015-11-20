@@ -1,2 +1,2 @@
 # spring-framework-examples
-stunstun's spring examples
+stunstun's spring framework examples

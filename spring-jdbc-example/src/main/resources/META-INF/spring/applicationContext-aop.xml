@@ -27,21 +27,4 @@
  	<!-- Enable @AspectJ support-->
 	<aop:aspectj-autoproxy />
 
-	<!-- proxy-target-class="true" -->
-	<!-- Logging -->
-	<bean id="loggingAdvice" class="com.stunstun.spring.mvc.commons.support.handler.LoggingAdvice" />
-	
-	<aop:config>
-		<aop:pointcut id="serviceOperation"	expression="execution(* com.stunstun..*Service.*(..)) || execution(* com.stunstun..*Repository.*(..)) "/>
-		<aop:aspect ref="loggingAdvice">
-			<aop:around pointcut-ref="serviceOperation"	method="logOperations" />
-		</aop:aspect>
-	</aop:config>
-
-	<aop:config>
-		<aop:aspect ref="loggingAdvice">
-			<aop:after-throwing throwing="exception" pointcut-ref="serviceOperation" method="logException"/>
-		</aop:aspect>
-	</aop:config>
-
 </beans>

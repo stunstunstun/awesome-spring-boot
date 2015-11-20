@@ -5,28 +5,12 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
 	
-	<!-- Configures the @Controller programming model -->
-	<mvc:annotation-driven>
-		<mvc:argument-resolvers>
-			<bean class="com.stunstun.spring.mvc.commons.controller.LoginSessionArgumentResolver">
-				<property name="authContext" ref="thAuthContext" />
-			</bean>
-		</mvc:argument-resolvers>
-	</mvc:annotation-driven>
-	
 	<!-- Configuration Interceptor -->
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/sample/**"/>
-			<bean class="com.stunstun.spring.mvc.commons.interceptor.RequestInterceptor" />
+			<mvc:mapping path="/**"/>
+			<bean class="com.stunstun.spring.common.interceptor.RequestInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
-	
-	<!-- resources exclusions from servlet mapping -->
-	<mvc:resources mapping="/favicon.ico" location="/favicon.ico" />
-	<mvc:resources mapping="/resource/**" location="/resource/" />
-	
-	<!--  Forwards requests to the path resource to the view-name  example) localhost/ mapping template /index.ftl  -->
-	<mvc:view-controller path="/" view-name="redirect:/sample/main"/>
 	
 </beans>
