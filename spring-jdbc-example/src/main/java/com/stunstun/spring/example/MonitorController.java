@@ -24,10 +24,10 @@ public class MonitorController {
 	@Autowired
 	private MonitorService monitorService;
 
-	@RequestMapping(value = "/status", method = RequestMethod.GET)
-	@ResponseBody
-	public ResponseEntity<String> l7check() {
+	@RequestMapping(value = "/status", method = RequestMethod.GET, headers = {"Content-Type=application/json"})
+	public @ResponseBody ResponseEntity<Status> l7check() {
 		monitorService.checkDataSource();
-		return new ResponseEntity<String>("OK", HttpStatus.OK);
+		Status status = new Status("OK");
+		return new ResponseEntity<>(status, HttpStatus.OK);
 	}
 }
