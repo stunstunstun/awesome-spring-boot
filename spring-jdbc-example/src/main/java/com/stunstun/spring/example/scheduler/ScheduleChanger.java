@@ -27,7 +27,7 @@ public class ScheduleChanger {
 	public void change() {
 		Random random = new Random();
 		int nextTimeout = random.nextInt(30000);
-		LOGGER.info("changing poll time to: " + nextTimeout);
+		LOGGER.debug("changing poll time to: " + nextTimeout);
 		dynamicSchedule.reset(nextTimeout);
 	}
 }

@@ -9,19 +9,19 @@ package com.stunstun.spring.example;
  */
 public class Status {
 	
-	private String message;
+	private boolean enable;
 	
 	public Status() {}
+
+	public Status(boolean enable) {
+		this.enable = enable;
+	}
 	
-	public Status(String message) {
-		this.message = message;
+	public boolean isEnable() {
+		return enable;
 	}
 
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
+	public void setEnable(boolean enable) {
+		this.enable = enable;
 	}
 }

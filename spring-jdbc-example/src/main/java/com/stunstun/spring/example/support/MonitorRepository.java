@@ -15,8 +15,7 @@ public class MonitorRepository {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	@SuppressWarnings("deprecation")
-	public int selectStatus() {
-		return jdbcTemplate.queryForInt("SELECT 1");
+	public String selectStatus() {
+		return jdbcTemplate.queryForObject("SELECT 'OK'", new Object[] {}, String.class);
 	}
 }

@@ -37,5 +37,10 @@
 		<servlet-name>spring-mvc-application</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	<error-page>
+	    <error-code>404</error-code>
+	    <location>/not_found</location>
+	</error-page>
 
 </web-app>

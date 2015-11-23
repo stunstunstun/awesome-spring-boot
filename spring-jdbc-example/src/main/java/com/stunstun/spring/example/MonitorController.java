@@ -26,8 +26,17 @@ public class MonitorController {
 
 	@RequestMapping(value = "/status", method = RequestMethod.GET, headers = {"Content-Type=application/json"})
 	public @ResponseBody ResponseEntity<Status> l7check() {
-		monitorService.checkDataSource();
-		Status status = new Status("OK");
+		Status status = new Status(monitorService.isEnable());
 		return new ResponseEntity<>(status, HttpStatus.OK);
+	}
+	
+	@RequestMapping(value = "/status/enable", method = RequestMethod.POST)
+	public @ResponseBody void start() {
+		monitorService.setStatus(true);
+	}
+
+	@RequestMapping(value = "/status/disable", method = RequestMethod.POST)
+	public @ResponseBody void stop() {
+		monitorService.setStatus(false);
 	}
 }

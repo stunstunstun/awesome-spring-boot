@@ -19,11 +19,8 @@ public class DataSourceHealthCheckScheduler {
 	private MonitorService monitorService;
 	
 	public void healthCheck() {
-		try {
-			monitorService.checkDataSource();
-			LOGGER.info("datasSource status is alive...");
-		} catch (Exception e) {
-			throw new RuntimeException("datasSource status was dead: " + e.getMessage());
+		if (monitorService.isEnable()) {
+			LOGGER.debug("data source status is alive...");
 		}
 	}
 }

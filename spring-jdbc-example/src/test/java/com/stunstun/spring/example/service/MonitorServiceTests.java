@@ -3,6 +3,9 @@
  */
 package com.stunstun.spring.example.service;
 
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
+
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -20,6 +23,6 @@ public class MonitorServiceTests extends AbstractTestableContext {
 	
 	@Test
 	public void testHealthCheckDataSource() {
-		monitorService.checkDataSource();
+		assertThat(monitorService.isEnable(), is(true));
 	}
 }

@@ -1,4 +1,4 @@
-package com.stunstun.spring.common.support;
+package com.stunstun.spring.common.support.util;
 
 import java.io.BufferedInputStream;
 import java.io.Closeable;
