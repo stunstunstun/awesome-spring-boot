@@ -3,9 +3,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   
-  <artifactId>spring-jdbc-example</artifactId>
+  <artifactId>spring-mybatis-example</artifactId>
   <groupId>com.stunstun.spring.example</groupId>
-  <name>spring-jdbc-example</name>
+  <name>spring-mybatis-example</name>
   
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
@@ -83,17 +83,29 @@
 		    <version>1.8.7</version>
 		</dependency>				
 		
-		<!-- DHCP -->
+		<!-- Data Source -->
 	    <dependency>
-			<groupId>commons-dbcp</groupId>
-			<artifactId>commons-dbcp</artifactId>
-			<version>1.4</version>
+			<groupId>org.apache.tomcat</groupId>
+			<artifactId>tomcat-jdbc</artifactId>
+			<version>7.0.65</version>
 		</dependency>
-	
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.37</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.3.0</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+			<version>1.2.3</version>
 		</dependency>
 		
 		<!-- Logging -->

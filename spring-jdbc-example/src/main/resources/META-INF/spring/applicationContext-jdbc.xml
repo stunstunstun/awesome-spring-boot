@@ -19,7 +19,7 @@
 		<property name="minIdle" value="0" />
 		<property name="maxWait" value="2000" />
 	</bean>
-
+	
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
  		<property name="dataSource" ref="dataSource" />
  		<property name="queryTimeout" value="5" />
