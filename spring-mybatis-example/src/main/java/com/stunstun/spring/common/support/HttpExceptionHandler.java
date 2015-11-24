@@ -3,6 +3,8 @@
  */
 package com.stunstun.spring.common.support;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -20,6 +22,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 import com.stunstun.spring.common.Response;
 import com.stunstun.spring.common.ResponseObject;
@@ -32,6 +35,8 @@ import com.stunstun.spring.common.ResponseObject;
 @ControllerAdvice
 @Order(Ordered.LOWEST_PRECEDENCE - 100)
 public class HttpExceptionHandler {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(HttpExceptionHandler.class);
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseBody
@@ -60,12 +65,20 @@ public class HttpExceptionHandler {
 	@ExceptionHandler(Throwable.class)
 	@ResponseBody
 	public ResponseEntity<Response> handle(Throwable ex) {
+		LOGGER.error(ex.getMessage());
 		HttpStatus httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
 		return new ResponseEntity<Response>(new ResponseObject(httpStatus.getReasonPhrase()), httpStatus);
 	}
 	
+	@ExceptionHandler(ResourceNotFoundException.class)
+	public ResponseEntity<Response> handle(ResourceNotFoundException ex) {
+		HttpStatus httpStatus = HttpStatus.NOT_FOUND;
+		return new ResponseEntity<Response>(new ResponseObject(httpStatus.getReasonPhrase()), httpStatus);
+	}
+	
 	@RequestMapping(value = "/not_found", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-	public @ResponseBody ResponseEntity<Response> notFound() {
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public ResponseEntity<Response> notFound() {
 		HttpStatus httpStatus = HttpStatus.NOT_FOUND;
 		return new ResponseEntity<Response>(new ResponseObject(httpStatus.getReasonPhrase()), httpStatus);
 	}

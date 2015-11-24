@@ -19,7 +19,7 @@ public class RequestInterceptor extends HandlerInterceptorAdapter {
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		LOGGER.info("METHOD[{}] IP[{}]", request.getMethod(), request.getRemoteAddr());
+		LOGGER.info("METHOD[{}] URI[{}] IP[{}]", request.getMethod(), request.getRequestURI(), request.getRemoteAddr());
 		return super.preHandle(request, response, handler);
 	}
 	

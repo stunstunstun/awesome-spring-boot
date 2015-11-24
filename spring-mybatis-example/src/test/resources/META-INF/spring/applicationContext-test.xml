@@ -14,6 +14,5 @@
     <!-- Configurations -->
     <import resource="applicationContext-mvc.xml" />
     <import resource="applicationContext-aop.xml" />
-    <import resource="applicationContext-scheduling.xml" />
     <import resource="applicationContext-jdbc.xml" />
 </beans>

@@ -9,40 +9,16 @@ package com.stunstun.spring.repository.entity;
  */
 public class User {
 
-	private int userId;
+	private Long id;
 	
 	private String userName;
 	
-	private String token;
+	private String password;
 
-	public int getUserId() {
-		return userId;
-	}
-
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getToken() {
-		return token;
-	}
-
-	public void setToken(String token) {
-		this.token = token;
-	}
-	
 	@Override
 	public boolean equals(Object other) {
 		if (other != null && other instanceof User) {
-			if (((User) other).getUserId() == this.userId) {
+			if (((User) other).getId() == this.id) {
 				return true;
 			}
 		}
@@ -56,6 +32,30 @@ public class User {
 	
 	@Override
 	public String toString() {
-		return "userId[" + userId +"] userName[" + userName + "]";
+		return "id[" + id +"] userName[" + userName + "]";
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+	
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

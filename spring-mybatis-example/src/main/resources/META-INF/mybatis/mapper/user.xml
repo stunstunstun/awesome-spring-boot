@@ -1,13 +1,52 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.stunstun.spring.repository.UserMapper">
 
-	<select id="selectOne" resultType="User" parameterType="int">
+	<select id="selectList" resultType="User">
 		SELECT
-		 id AS userId,
-		 nickname AS userName,
-		 token AS token
-		FROM users
-		WHERE users.id = #{value}
+		 id AS id,
+		 username AS userName,
+		 enc_password AS password
+		FROM user
 	</select>
+	
+	<select id="selectOne" resultType="User" parameterType="Long">
+		SELECT
+		 id AS id,
+		 username AS userName,
+		 enc_password AS password
+		FROM user
+		WHERE user.id = #{value}
+	</select>
+	
+	<select id="selectByUserName" resultType="User">
+		SELECT
+		 id AS id,
+		 username AS userName,
+		 enc_password AS password
+		FROM user
+		WHERE user.username = #{userName}
+	</select>
+	
+	<insert id="insert" parameterType="com.stunstun.spring.repository.entity.User">
+		INSERT INTO user (
+		username,
+		enc_password
+		) 
+		VALUES (
+		#{userName},
+		#{password}
+		)
+	</insert>
+	
+	<update id="update" parameterType="com.stunstun.spring.repository.entity.User">
+		UPDATE user SET
+		username = #{userName},
+		enc_password = #{password}
+		WHERE user.id = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="com.stunstun.spring.repository.entity.User">
+		DELETE FROM user WHERE user.id = #{id}
+	</delete>
 	
 </mapper>
