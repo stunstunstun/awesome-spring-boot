@@ -9,8 +9,10 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author stunstun(minhyuck.jung@nhnent.com)
  *
  */
-@ConfigurationProperties(prefix = "datasource.master")
+@ConfigurationProperties(prefix = MasterDatabaseProperties.PREFIX)
 public class MasterDatabaseProperties implements DatabaseProperties {
+	
+	public static final String PREFIX = "datasource.master"; 
 
 	private String driverClassName;
 	
