@@ -48,7 +48,7 @@ public abstract class DatabaseConfig {
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan(basePackages = {"com.stunstun.spring.repository"})
+@MapperScan(basePackages = {"com.stunstun.spring.repository"}, sqlSessionFactoryRef = "masterSqlSessionFactory")
 class DefaultDatabaseConfig extends DatabaseConfig {
 	
 	@Autowired
@@ -68,8 +68,8 @@ class DefaultDatabaseConfig extends DatabaseConfig {
 		return transactionManager;
     }
 	
-	@Bean
-	public SqlSessionFactory sqlSessionFactory() throws Exception {
+	@Bean(name = "masterSqlSessionFactory")
+	public SqlSessionFactory masterSqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
 		sessionFactoryBean.setDataSource(dataSource());
 		sessionFactoryBean.setTypeAliasesPackage("com.stunstun.spring.repository.entity");
