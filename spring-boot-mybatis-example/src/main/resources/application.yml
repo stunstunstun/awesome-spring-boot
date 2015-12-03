@@ -1,5 +1,6 @@
 spring:
   profiles: default
+  
 datasource:
   master:
       driver-class-name: "com.mysql.jdbc.Driver"

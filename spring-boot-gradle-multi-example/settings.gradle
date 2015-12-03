@@ -1,0 +1,3 @@
+rootProject.name = 'spring-boot-gradle-multi-example'
+
+include "common", "api"

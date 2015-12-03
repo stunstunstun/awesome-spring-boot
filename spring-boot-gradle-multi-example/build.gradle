@@ -1,0 +1,116 @@
+def vJavaLang = '1.7'
+def javaProjects = [ project(':common'), project(':api') ]
+def bootProjects = javaProjects - project(':common')
+
+wrapper.gradleVersion = '2.9'
+
+buildscript {
+	ext {
+		springRepo = 'http://repo.spring.io/libs-release'
+	}
+
+	repositories {
+        maven { url springRepo }
+    }
+    
+    dependencies {
+        classpath ("org.springframework.boot:spring-boot-gradle-plugin:1.3.0.RELEASE")
+        classpath ("io.spring.gradle:dependency-management-plugin:0.5.3.RELEASE")
+    }
+}
+
+configure(allprojects) {
+    apply plugin: 'eclipse'
+}
+	
+configure(javaProjects) {
+	apply plugin: 'java'
+	apply plugin: 'jacoco'
+    
+    sourceCompatibility = vJavaLang
+	targetCompatibility = vJavaLang
+	
+	ext.jacocoVersion = '0.7.1.201405082137'
+	
+	repositories {
+        maven { url springRepo }
+    }
+    
+    dependencies {
+        compile 'org.slf4j:slf4j-api'
+        compile 'org.projectlombok:lombok'
+        
+        runtime "org.jacoco:org.jacoco.agent:$jacocoVersion"
+        
+        testCompile 'junit:junit'
+        testCompile 'org.hamcrest:hamcrest-library'
+        testCompile 'org.mockito:mockito-core'
+        testCompile 'org.objenesis:objenesis'
+    }
+
+    configurations {
+        // replaced with jcl-over-slf4j
+        all*.exclude group: 'commons-logging', module: 'commons-logging'
+        // replaced with log4j-over-slf4j
+        all*.exclude group: 'log4j', module: 'log4j'
+    }
+    
+    test {  
+		println "[test] I'm $project.name"
+	    jacoco {
+	        append = false
+	        destinationFile = file("${buildDir.name}/jacoco/test.exec")
+	    }
+	}
+	    
+	jacocoTestReport {
+	    group = "Project Test Reports"
+	 	description = "Generate Jacoco coverage reports after running tests."
+	 	additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+	    reports {
+	        xml.enabled false
+	        csv.enabled false
+	        html.destination "$buildDir/reports/jacocoHtml"
+	  		sourceSets sourceSets.main
+	    }
+	}
+	
+    eclipseClasspath.dependsOn testClasses
+	eclipseJdt.onlyIf { false }
+    cleanEclipseJdt.onlyIf { false }
+    eclipse {
+	    classpath {
+	         containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+	         containers 'org.eclipse.jdt.launching.JRE_CONTAINER'
+	    }
+	}
+}
+
+configure(bootProjects) {
+	apply plugin: "io.spring.dependency-management"
+    apply plugin: 'spring-boot'
+	
+	springBoot.backupSource = false
+	
+	dependencyManagement {
+        imports {
+            mavenBom 'io.spring.platform:platform-bom:2.0.0.RELEASE'
+        }
+    }
+    
+	configurations {
+		crosstest
+		testCompile.extendsFrom crosstest
+	}
+	
+	dependencies {
+		testCompile "org.springframework.boot:spring-boot-starter-test"		
+   	    crosstest project(':common').sourceSets.test.output
+	}
+	
+	eclipse {
+		classpath {
+        	minusConfigurations += [ configurations.crosstest ]
+        }	
+	}	
+}

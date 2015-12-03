@@ -1,0 +1,31 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.spring.gradle:dependency-management-plugin:0.5.3.RELEASE"
+    }
+}
+
+apply plugin: "io.spring.dependency-management"
+
+dependencyManagement {
+	imports {
+		mavenBom 'io.spring.platform:platform-bom:2.0.0.RELEASE'
+	}
+}
+
+dependencies {
+    // spring boot dependencies
+    compile 'org.springframework:spring-context'
+    
+    compile 'org.apache.httpcomponents:httpclient'
+    compile 'joda-time:joda-time'
+    compile 'org.hibernate:hibernate-validator'
+    compile "com.fasterxml.jackson.core:jackson-core"
+    compile "com.fasterxml.jackson.core:jackson-annotations"
+    compile "com.fasterxml.jackson.core:jackson-databind"
+    
+    // for use of spring-test's MatcherAssertionErrors.*
+    testCompile "org.springframework:spring-test"
+}
