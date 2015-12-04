@@ -1,4 +1,4 @@
-def vJavaLang = '1.7'
+def vJavaLang = '1.8'
 def javaProjects = [ project(':common'), project(':api') ]
 def bootProjects = javaProjects - project(':common')
 
@@ -21,6 +21,17 @@ buildscript {
 
 configure(allprojects) {
     apply plugin: 'eclipse'
+    
+    eclipse {  	
+		project.natures "org.springsource.ide.eclipse.gradle.core.nature"
+	    classpath {
+	         containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
+	         containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
+	    }
+	    println GradleVersion.current()
+	    println "System JVM Location = " + System.getProperty("java.home")
+	    println "Project JVM Version = $vJavaLang"
+	}	
 }
 	
 configure(javaProjects) {
@@ -28,7 +39,7 @@ configure(javaProjects) {
 	apply plugin: 'jacoco'
     
     sourceCompatibility = vJavaLang
-	targetCompatibility = vJavaLang
+	targetCompatibility = vJavaLang	
 	
 	ext.jacocoVersion = '0.7.1.201405082137'
 	
@@ -55,7 +66,7 @@ configure(javaProjects) {
         all*.exclude group: 'log4j', module: 'log4j'
     }
     
-    test {  
+    test {    	
 		println "[test] I'm $project.name"
 	    jacoco {
 	        append = false
@@ -63,7 +74,7 @@ configure(javaProjects) {
 	    }
 	}
 	    
-	jacocoTestReport {
+	jacocoTestReport {	
 	    group = "Project Test Reports"
 	 	description = "Generate Jacoco coverage reports after running tests."
 	 	additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
@@ -73,18 +84,12 @@ configure(javaProjects) {
 	        html.destination "$buildDir/reports/jacocoHtml"
 	  		sourceSets sourceSets.main
 	    }
-	}
-	
-    eclipseClasspath.dependsOn testClasses
-	eclipseJdt.onlyIf { false }
-    cleanEclipseJdt.onlyIf { false }
-    eclipse {
-	    classpath {
-	         containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
-	         containers 'org.eclipse.jdt.launching.JRE_CONTAINER'
-	    }
-	}
+	}	
 }
+
+println GradleVersion.current()
+println "System JVM Location = " + System.getProperty("java.home")
+println "Project JVM Version = $vJavaLang"
 
 configure(bootProjects) {
 	apply plugin: "io.spring.dependency-management"

@@ -14,7 +14,7 @@ dependencyManagement {
 		mavenBom 'io.spring.platform:platform-bom:2.0.0.RELEASE'
 	}
 }
-
+	
 dependencies {
     // spring boot dependencies
     compile 'org.springframework:spring-context'

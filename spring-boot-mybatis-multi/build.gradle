@@ -1,3 +1,5 @@
+def vJavaLang = '1.8'
+
 buildscript {
     ext {
         springBootVersion = '1.3.0.RELEASE'
@@ -33,8 +35,8 @@ war {
     version = '0.0.1-SNAPSHOT'
 }
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = vJavaLang
+targetCompatibility = vJavaLang
 
 repositories {
     mavenCentral()
@@ -59,14 +61,17 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test") 
 }
 
-
-eclipse {
+eclipse {  	
+	project.natures "org.springsource.ide.eclipse.gradle.core.nature"
     classpath {
          containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
          containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
     }
-}
+    println GradleVersion.current()
+    println "System JVM Location = " + System.getProperty("java.home")
+    println "Project JVM Version = $vJavaLang"
+}	
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.6'
+    gradleVersion = '2.9'
 }
