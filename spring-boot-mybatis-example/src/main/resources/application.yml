@@ -4,9 +4,9 @@ spring:
 datasource:
   master:
       driver-class-name: "com.mysql.jdbc.Driver"
-      url: "jdbc:mysql://instalove.c59l1a7nu4cr.us-west-2.rds.amazonaws.com:3306/instalove?useUnicode=true&charaterEncoding=utf-8"
-      user-name: "stunstun"
-      password: "wjdsup85"
+      url: "jdbc:mysql://localhost:3306/instalove?useUnicode=true&charaterEncoding=utf-8"
+      user-name: "guest"
+      password: "1234"
       initial-size: 10
       max-active: 10
       max-idle: 10
