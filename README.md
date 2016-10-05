@@ -16,3 +16,6 @@ Spring Boot을 학습하기 위해서는 아래의 공식문서를 참고하시�
 * spring-boot-jdbc-example : Spring Boot Integration JDBC with Java Config
 * spring-boot-mybatis-example : Spring Boot Integration myBatis with Java Config
 * spring-boot-mybatis-multi : Spring Boot Integration myBatis multiple datasource with Java Config
+
+## You can join 
+* 버그 픽스나, Spring Boot을 통한 다양한 예제를 Pull Request 해주세요 :D
