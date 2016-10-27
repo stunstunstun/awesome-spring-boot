@@ -1,21 +1,18 @@
+## 이 Repository는 
 
-
-## How Come?
-
-Spring Boot을 통해 애플리케이션 개발을 처음 시작하시는 분들을 위한 샘플 프로젝트 모음입니다.
-Spring Boot을 학습하기 위해서는 아래의 공식문서를 참고하시면 가장 좋겠지만,
-> http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
-
-내용이 광범위하다고 느껴지신다면 먼저 자주 사용되는 케이스를 Repository의 예제와 함께, 아래의 Blog를 참고하시면 Spring Boot를 시작하는데 조금은 도움이 될것 입니다.
-> http://stunstun.tistory.com/category/Spring%20Framework
+Spring Boot을 통해 애플리케이션 개발을 시작하시는 분들을 위한 Tutorial 예제입니다. 아래의 Repository의 문서와 같이 학습하시는 것을 추천합니다.
+- https://github.com/wjdsupj/stunstun-wiki/tree/master/Spring
 
 ## Tutorials
-* spring-boot-gradle-multi-example : Gradle multiple project sample
-* spring-jdbc-example : XML based spring JDBC Integration
-* spring-mybatis-example : XML base spring mybatis Integration
-* spring-boot-jdbc-example : Spring Boot Integration JDBC with Java Config
-* spring-boot-mybatis-example : Spring Boot Integration myBatis with Java Config
-* spring-boot-mybatis-multi : Spring Boot Integration myBatis multiple datasource with Java Config
+
+Project | Description |
+---|---
+Spring Boot 이전의 JDBC 통합 | spring-jdbc-example 
+Spring Boot 이전의 myBatis 통합 | spring-mybatis-example 
+Spring Boot과 Gradle 프로젝트의 구조. 첫 테스트 케이스 만들기 | spring-boot-gradle-multi-example 
+Spring Boot에서 전통적인 JDBC를 통해 Datasource 연동하기 |  spring-boot-jdbc-example 
+Spring Boot에서 Java Config, myBatis를 통해 Datasource 연동하기 | spring-boot-mybatis-example 
+Spring Boot에서 2개 이상의 Datasource 운용하기 | spring-boot-mybatis-multi
 
 ## You can join 
 * 버그 픽스나, Spring Boot을 통한 다양한 예제를 Pull Request 해주세요 :D
