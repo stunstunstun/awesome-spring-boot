@@ -17,5 +17,11 @@ Spring Boot과 Gradle 프로젝트의 구조. 첫 테스트 케이스 만들기 
 Spring Boot에서 Java Config, myBatis를 통해 Datasource 연동하기 | Gradle | spring-boot-mybatis-example 
 Spring Boot에서 2개 이상의 Datasource 운용하기 | Gradle | spring-boot-mybatis-multi
 
+## Download
+
+````
+git clone https://github.com/wjdsupj/spring-boot-examples-for-beginner.git
+````
+
 ## You can join 
 * 버그 픽스나, Spring Boot을 통한 다양한 예제를 Pull Request 해주세요 :D
