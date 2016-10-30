@@ -3,6 +3,9 @@
 Spring Boot을 통해 애플리케이션 개발을 시작하시는 분들을 위한 Tutorial 예제입니다. 아래의 Repository의 문서와 같이 학습하시는 것을 추천합니다.
 - https://github.com/wjdsupj/stunstun-wiki/tree/master/Spring
 
+**Mac에서 Java개발환경 준비하기**
+- https://github.com/wjdsupj/stunstun-wiki/blob/master/AWS/2016-10-04-java-programming-environment.md
+
 ## Tutorials
 
 Project | Description |
