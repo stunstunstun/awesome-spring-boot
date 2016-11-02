@@ -17,7 +17,7 @@ import org.springframework.scheduling.TriggerContext;
  * 
  * http://jurberg.github.io/blog/2011/11/05/custom-scheduling-spring/
  * 
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  */
 public class DynamicSchedule implements Trigger {
 	

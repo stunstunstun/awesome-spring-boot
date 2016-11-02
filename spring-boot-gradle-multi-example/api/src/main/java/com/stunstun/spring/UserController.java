@@ -8,8 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
+ * https://github.com/wjdsupj
+ * 
  */
 @RestController
 public class UserController {

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.stunstun.spring.example.support.MonitorService;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 @Controller

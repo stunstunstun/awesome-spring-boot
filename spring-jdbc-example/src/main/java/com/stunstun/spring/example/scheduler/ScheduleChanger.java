@@ -12,7 +12,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 @Component

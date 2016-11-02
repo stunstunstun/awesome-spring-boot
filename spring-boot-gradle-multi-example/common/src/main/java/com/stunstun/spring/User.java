@@ -1,7 +1,7 @@
 package com.stunstun.spring;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 public class User {

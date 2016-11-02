@@ -12,7 +12,7 @@ import com.stunstun.spring.repository.UserMapper;
 import com.stunstun.spring.repository.entity.User;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 @Service

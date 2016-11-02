@@ -4,7 +4,7 @@
 package com.stunstun.spring.common.support;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 @SuppressWarnings("serial")

@@ -4,8 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
+ * https://github.com/wjdsupj
+ * 
  */
 @SpringBootApplication
 public class ApiBootApplication {

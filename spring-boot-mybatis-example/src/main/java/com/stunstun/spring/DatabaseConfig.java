@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.stunstun.spring.properties.MasterDatabaseProperties;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 @EnableConfigurationProperties(value = MasterDatabaseProperties.class)

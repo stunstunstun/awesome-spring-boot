@@ -11,8 +11,10 @@ import org.junit.Test;
 import com.stunstun.spring.support.Fixtures;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
+ * - https://github.com/wjdsupj
+ * 
  */
 public class FixturesTests {
 

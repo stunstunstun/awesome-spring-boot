@@ -4,7 +4,7 @@
 package com.stunstun.spring.example;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 public class Status {

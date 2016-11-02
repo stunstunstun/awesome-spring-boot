@@ -13,7 +13,7 @@ import com.stunstun.spring.AbstractTestableContext;
 import com.stunstun.spring.example.support.MonitorService;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 public class MonitorServiceTests extends AbstractTestableContext {

@@ -9,7 +9,7 @@ import com.stunstun.spring.example.support.MonitorService;
 
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  */
 @Component
 public class DataSourceHealthCheckScheduler {

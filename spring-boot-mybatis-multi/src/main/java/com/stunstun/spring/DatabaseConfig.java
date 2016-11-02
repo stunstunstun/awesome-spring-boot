@@ -22,7 +22,7 @@ import com.stunstun.spring.properties.MasterDatabaseProperties;
 import com.stunstun.spring.properties.SlaveDatabaseProperties;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 public abstract class DatabaseConfig {

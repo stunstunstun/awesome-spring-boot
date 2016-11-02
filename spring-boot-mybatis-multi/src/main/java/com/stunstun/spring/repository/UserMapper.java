@@ -11,7 +11,7 @@ import com.stunstun.spring.repository.entity.User;
 import com.stunstun.spring.repository.support.Master;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 @Master

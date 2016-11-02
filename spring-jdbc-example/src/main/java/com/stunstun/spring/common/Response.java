@@ -4,7 +4,7 @@
 package com.stunstun.spring.common;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 public interface Response {

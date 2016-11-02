@@ -14,13 +14,13 @@
 	<bean id="dataSource" class="org.apache.tomcat.jdbc.pool.DataSource" destroy-method="close">
 		<property name="driverClassName" value="#{dataSourceConfig['datasource.driverClassName']}" />
 		<property name="url" value="#{dataSourceConfig['datasource.url']}" />
-		<property name="username" value="#{dataSourceConfig['datasource.userName']}" />
+		<property name="username" value="#{dataSourceConfig['datasource.username']}" />
 		<property name="password" value="#{dataSourceConfig['datasource.password']}" />
 		<property name="initialSize" value="5" />
 		<property name="maxActive" value="50" />
 		<property name="maxIdle" value="50" />
 		<property name="minIdle" value="20" />
-		<property name="maxWait" value="2000" />
+		<property name="maxWait" value="5000" />
 	</bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
@@ -33,9 +33,9 @@
 	<!-- myBatis configurations  -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	  	<property name="dataSource" ref="dataSource" />
-	  	<property name="typeAliasesPackage" value="com.stunstun.spring.repository.entity" />
+	  	<property name="typeAliasesPackage" value="com.stunstun.spring.repository" />
+	  	<property name="configLocation" value="classpath:META-INF/mybatis/mybatis-config.xml" />
 	 	<property name="mapperLocations" value="classpath:META-INF/mybatis/mapper/**/*.xml" />
-	 	<property name="configLocation" value="classpath:META-INF/mybatis/mybatis-config.xml" />
 	</bean>
 	
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

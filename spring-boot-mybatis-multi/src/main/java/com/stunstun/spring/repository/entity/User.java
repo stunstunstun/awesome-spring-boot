@@ -4,7 +4,7 @@
 package com.stunstun.spring.repository.entity;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 public class User {

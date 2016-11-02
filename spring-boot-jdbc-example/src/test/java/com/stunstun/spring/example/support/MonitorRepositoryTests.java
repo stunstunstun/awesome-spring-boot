@@ -15,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.stunstun.spring.SpringBootJdbcExampleApplication;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 @SpringApplicationConfiguration(classes = SpringBootJdbcExampleApplication.class)

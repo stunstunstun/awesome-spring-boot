@@ -1,7 +1,7 @@
 package com.stunstun.spring.properties;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 public interface DatabaseProperties {

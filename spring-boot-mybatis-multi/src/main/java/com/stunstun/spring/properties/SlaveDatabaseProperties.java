@@ -6,7 +6,7 @@ package com.stunstun.spring.properties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 @ConfigurationProperties(prefix = SlaveDatabaseProperties.PREFIX)

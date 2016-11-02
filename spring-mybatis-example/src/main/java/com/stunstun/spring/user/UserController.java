@@ -20,7 +20,7 @@ import com.stunstun.spring.repository.entity.User;
 import com.stunstun.spring.user.support.UserService;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 @Controller

@@ -19,7 +19,7 @@ import com.stunstun.spring.repository.support.Master;
 import com.stunstun.spring.repository.support.Slave;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 public abstract class MyBatisConfig {

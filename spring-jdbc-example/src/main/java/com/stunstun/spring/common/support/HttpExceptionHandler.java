@@ -25,7 +25,7 @@ import com.stunstun.spring.common.Response;
 import com.stunstun.spring.common.ResponseObject;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 @Controller

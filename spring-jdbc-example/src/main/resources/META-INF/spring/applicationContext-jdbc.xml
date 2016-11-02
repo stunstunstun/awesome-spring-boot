@@ -9,7 +9,7 @@
 	<util:properties id="dataSourceConfig" location="classpath:/properties/datasource.properties" />
 	
 	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
-		<property name="driverClassName" value="#{dataSourceConfig['datasource.jdbcUrl']}" />
+		<property name="driverClassName" value="#{dataSourceConfig['datasource.driverClassName']}" />
 		<property name="url" value="#{dataSourceConfig['datasource.url']}" />
 		<property name="username" value="#{dataSourceConfig['datasource.username']}" />
 		<property name="password" value="#{dataSourceConfig['datasource.password']}" />

@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Param;
 import com.stunstun.spring.repository.entity.User;
 
 /**
- * @author stunstun(minhyuck.jung@nhnent.com)
+ * @author stunstun
  *
  */
 public interface UserMapper {
