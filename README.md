@@ -26,6 +26,7 @@ git clone https://github.com/wjdsupj/spring-boot-examples-for-beginner.git
 ## Import Project
 
 STS IDE 메뉴에서 File > Import > Gradle Project를 선택하고 Next
+
 ![import_project](http://image.toast.com/aaaaahq/import-gradle-1.png)
 
 ## You can join 
