@@ -1,6 +1,6 @@
 ## Overview 
 
-**Spring Boot을 통해 애플리케이션 개발을 시작하시는 분들을 위한 Tutorial 예제입니다. 아래의 Repository의 문서와 같이 학습하시는 것을 추천합니다.**
+**Spring Boot을 통해 애플리케이션 개발을 시작하시는 분들을 위한 Tutorial 예제입니다. 아래의 문서를 순서대로 참고하시면서 학습하시는 것을 추천합니다.**
 - https://github.com/wjdsupj/stunstun-wiki/tree/master/Spring
 
 **Mac에서 Java개발환경 준비하기**
@@ -22,6 +22,11 @@ Spring Boot에서 2개 이상의 Datasource 운용하기 | Gradle | spring-boot-
 ````
 git clone https://github.com/wjdsupj/spring-boot-examples-for-beginner.git
 ````
+
+## Import Project
+
+STS IDE 메뉴에서 File > Import > Gradle Project를 선택하고 Next
+![import_project](http://image.toast.com/aaaaahq/import-gradle-1.png)
 
 ## You can join 
 * 버그 픽스나, Spring Boot을 통한 다양한 예제를 Pull Request 해주세요 :D
