@@ -6,7 +6,7 @@
 **Mac에서 Java개발환경 준비하기**
 - https://github.com/wjdsupj/stunstun-wiki/blob/master/AWS/2016-10-04-java-programming-environment.md
 
-## Tutorials Guide
+## Tutorials
 
 Project | Build | Description |
 ---|---|----
@@ -28,6 +28,8 @@ git clone https://github.com/wjdsupj/spring-boot-examples-for-beginner.git
 STS IDE 메뉴에서 File > Import > Gradle Project를 선택하고 Next
 
 ![import_project](http://image.toast.com/aaaaahq/import-gradle-1.png)
+
+Tutorials의 각각의 예제 프로젝트를 선택하여 Import합니다.
 
 ## You can join 
 * 버그 픽스나, Spring Boot을 통한 다양한 예제를 Pull Request 해주세요 :D
