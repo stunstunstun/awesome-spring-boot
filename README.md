@@ -8,6 +8,11 @@
 
 ## Tutorials
 
+Enviroments | Version (Lastest Updated 2015.11)
+---|---
+Spring Boot | 1.3.0.RELEASE
+Gradle | 2.9
+
 Project | Build | Description |
 ---|---|----
 Spring Boot 이전의 JDBC 통합 | Maven | spring-jdbc-example 
