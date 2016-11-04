@@ -8,11 +8,6 @@
 
 ## Tutorials
 
-Enviroments | Version (Lastest Updated 2015.11)
----|---
-Spring Boot | 1.3.0.RELEASE
-Gradle | 2.9
-
 Project | Build | Description |
 ---|---|----
 Spring Boot 이전의 JDBC 통합 | Maven | spring-jdbc-example 
@@ -35,6 +30,13 @@ STS IDE 메뉴에서 File > Import > Gradle Project를 선택하고 Next
 ![import_project](http://image.toast.com/aaaaahq/import-gradle-1.png)
 
 Tutorials의 각각의 예제 프로젝트를 선택하여 Import합니다.
+
+## Enviroments & History
+
+Enviroments | Version (Lastest Updated 2016.10)
+---|---
+Spring Boot | 1.3.0.RELEASE
+Gradle | 2.9
 
 ## You can join 
 * 버그 픽스나, Spring Boot을 통한 다양한 예제를 Pull Request 해주세요 :D
