@@ -34,7 +34,7 @@ Project | Build | Description |
 ---|---|----
 [spring-jdbc-example](https://github.com/wjdsupj/awesome-spring-boot-kor/tree/master/spring-jdbc-example) | Maven | Spring Boot 이전의 JDBC 통합
 [spring-mybatis-example](https://github.com/wjdsupj/awesome-spring-boot-kor/tree/master/spring-mybatis-example) | Maven | Spring Boot 이전의 myBatis 통합
-[spring-boot-jdbc-example](https://github.com/wjdsupj/awesome-spring-boot-kor/tree/master/spring-boot-jdbc-example) | Maven | Spring Boot에서 전통적인 JDBC를 통해 Datasource 연동(https://github.com/wjdsupj/stunstun-wiki/blob/master/Spring/2015-11-01-spring-boot-jdbc.md)
+[spring-boot-jdbc-example](https://github.com/wjdsupj/awesome-spring-boot-kor/tree/master/spring-boot-jdbc-example) | Maven | [Spring Boot에서 전통적인 JDBC를 통해 Datasource 연동](https://github.com/wjdsupj/stunstun-wiki/blob/master/Spring/2015-11-01-spring-boot-jdbc.md)
 [spring-boot-mybatis-example](https://github.com/wjdsupj/awesome-spring-boot-kor/tree/master/spring-boot-mybatis-example)| Gradle | [Spring Boot에서 Java Config, myBatis를 통해 Datasource 연동하기](https://github.com/wjdsupj/stunstun-wiki/blob/master/Spring/2015-11-02-spring-boot-mybatis.md)
 [spring-boot-mybatis-multi](https://github.com/wjdsupj/awesome-spring-boot-kor/tree/master/spring-boot-mybatis-multi) | Gradle | Spring Boot에서 2개 이상의 Datasource 운용하기
 [spring-boot-gradle-multi-example](https://github.com/wjdsupj/awesome-spring-boot-kor/tree/master/spring-jdbc-example) | Gradle | Spring Boot과 Gradle 프로젝트의 구조. 첫 테스트 케이스 만들기  
