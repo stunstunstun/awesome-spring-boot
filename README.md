@@ -3,17 +3,17 @@
 Spring Boot을 시작하기 위한 개발 환경과 예제 그리 실무에 필요한 키워드들
 
 ## Table
-- [Awesome Spring Boot](# Table)
-    - [Environments](# Environments)
-    - [Tutorials](# Tutorials)
-    - [Testing](# Testing)
-    - [Build](# Build)
-    - [CI](# CI)
-    - [Deploy](# Deploy)
+- [Awesome Spring Boot](#awesome-spring-boot)
+    - [Environments](#environments)
+    - [Tutorials](#tutorials)
+    - [Testing](#testing)
+    - [Build](#build)
+    - [CI](#ci)
+    - [Deploy](#deploy)
 
 ## Environments
 
-- [STS IDE](https://github.com/wjdsupj/stunstun-wiki/blob/master/Spring/2015-05-09-spring-boot-environment.md#sts-ide를-통한-개발환경-준비){:target="_blank"} - STS IDE를 통한 개발 환경 준비
+- [STS IDE](https://github.com/wjdsupj/stunstun-wiki/blob/master/Spring/2015-05-09-spring-boot-environment.md#sts-ide를-통한-개발환경-준비) - STS IDE를 통한 개발 환경 준비
 - [Gradle](https://github.com/wjdsupj/stunstun-wiki/blob/master/Spring/2015-05-09-spring-boot-environment.md#gradle-설치하기) - 프로젝트 빌드를 위한 Gradle 설치하기
 - [Github](https://github.com/wjdsupj/stunstun-wiki/blob/master/Spring/2015-05-09-spring-boot-environment.md#github에서-프로젝트-version-관리하기) - Github를 통한 프로젝트 관리하기
 - [외부 프로젝트 Import](https://github.com/wjdsupj/stunstun-wiki/blob/master/Spring/2015-05-09-spring-boot-environment.md#외부-프로젝트-import-하기) - 외부 프로젝트를 STS IDE에 Import 하기
