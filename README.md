@@ -2,7 +2,7 @@
 
 Spring Boot을 시작하기 위한 개발 환경과 예제 그리 실무에 필요한 키워드들
 ## Table
-- [Awesome PHP](#Table)
+- [Awesome Spring Boot](#Table)
     - [Environments](#Environments)
     - [Tutorials](#Tutorials)
     - [Testing](#Testing)
