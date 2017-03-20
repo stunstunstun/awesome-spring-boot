@@ -3,7 +3,7 @@
 Spring Boot을 시작하기 위한 개발 환경과 예제 그리 실무에 필요한 키워드들
 
 ## Table
-- [Awesome Spring Boot](#awesome-spring-boot)
+- [Spring Boot 시작하기](https://github.com/wjdsupj/stunstun-wiki/blob/master/Spring/2015-05-08-get-started-spring-boot.md)
     - [Environments](#environments)
     - [Tutorials](#tutorials)
     - [Testing](#testing)
