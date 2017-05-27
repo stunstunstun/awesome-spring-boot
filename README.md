@@ -37,13 +37,19 @@ Project | Build | Description |
 [spring-boot-mvc-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-mvc-example) | Gradle | Integrating Spring Boot with Spring MVC
 [spring-boot-gradle-multi-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-jdbc-example) | Gradle | Gradle multi project structures
 
-## Test
+## DevOps
 
-## Build
+#### Environments
 
-## CI
+#### Create Project
+    
+#### Test
 
-## Deploy
+#### Build
+
+#### CI
+
+#### Deploy
 
 ## Spring Boot Feafures
 
