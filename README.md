@@ -5,10 +5,13 @@ A curated list of amazingly examples of Spring Boot, resources and shiny things.
 ## Table
 - [Environments](#environments)
 - [Tutorials](#tutorials)
-- [Testing](#testing)
+- [Test](#testing)
 - [Build](#build)
 - [CI](#ci)
 - [Deploy](#deploy)
+- [Spring Boot Features](#spring-boot-features)
+  - [Integrating Spring Boot with Spring MVC](#integrating-spring-boot-with-spring-mvc)
+  
 
 ## Environments
 
@@ -31,15 +34,18 @@ Project | Build | Description |
 [spring-boot-jdbc-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-jdbc-example) | Maven | Integrating Spring Boot with JDBC
 [spring-boot-mybatis-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-mybatis-example)| Gradle | Integrating Spring Boot with myBatis
 [spring-boot-mybatis-multi-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-mybatis-multi-example) | Gradle | Integrating Spring Boot with multi myBatis datasources
+[spring-boot-mvc-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-mvc-example) | Gradle | Integrating Spring Boot with Spring MVC
 [spring-boot-gradle-multi-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-jdbc-example) | Gradle | Gradle multi project structures
 
-## Testing
+## Test
 
 ## Build
 
-## Integrating with CI
+## CI
 
 ## Deploy
 
-## Integrating Spring Boot with Spring MVC
+## Spring Boot Feafures
+
+#### Integrating Spring Boot with Spring MVC
 
