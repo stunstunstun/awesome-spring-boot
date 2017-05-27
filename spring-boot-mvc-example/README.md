@@ -1,22 +1,23 @@
 
-#### Build
+## Build
 
 ```
 $ gradle build
 ```
 
-#### Run
+## Run
 
 You can access from the browser via the address below
 
 - http://localhost:8080/applications/{applicationId}
 
-**Running Application By Stand-Alone jar**
+#### Running as a packaged application
+
 ```
 $ java -jar build/libs/spring-boot-mvc-example.jar
 ```
 
-**Running Application By Spring Boot Plugin**
+#### Using Gradle Plugin
 ```
 $ gradle bootRun
 ```
