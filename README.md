@@ -51,7 +51,7 @@ Project | Build | Description |
 
 #### Deploy
 
-## Spring Boot Feafures
+## Spring Boot Features
 
 #### Integrating Spring Boot with Spring MVC
 
