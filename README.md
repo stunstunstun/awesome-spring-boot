@@ -18,7 +18,7 @@ A curated list of amazingly examples of Spring Boot, resources and shiny things.
   - [Logging](#logging)
   - [HTTP Client](#http-client)
   - [DBCP](#dbcp)
-  - [Embedded Servlet Containers](#embedded-servlet-containers)
+  - [Embedded Servlet Containers](#embedded-servlet-containers)
   - [Profile](#profile)
   
 ## Tutorials
