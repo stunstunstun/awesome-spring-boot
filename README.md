@@ -2,19 +2,19 @@
 
 A curated list of amazingly examples of Spring Boot, resources and shiny things.
 
-## Table
-- [Environments](#environments)
+## Contents
+
 - [Tutorials](#tutorials)
-- [Test](#testing)
-- [Build](#build)
-- [CI](#ci)
-- [Deploy](#deploy)
+- [DevOps](#devops)
+  - [Environments](#environments)
+  - [Create Project](#create-project)
+  - [Test](#test)
+  - [Build](#build)
+  - [CI](#ci)
+  - [Deploy](#deploy)
 - [Spring Boot Features](#spring-boot-features)
-  - [Integrating Spring Boot with Spring MVC](#integrating-spring-boot-with-spring-mvc)
+  - [Integrating Spring Boot with Spring MVC](#integrating-spring-boot-with-spring-mvc)
   
-
-## Environments
-
 ## Tutorials
 
 Tutorials of how Spring Boot works!
