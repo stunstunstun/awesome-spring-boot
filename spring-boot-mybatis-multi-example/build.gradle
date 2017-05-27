@@ -31,7 +31,7 @@ apply plugin: 'io.spring.dependency-management'
 
 
 war {
-    baseName = 'spring-boot-mybatis-multi'
+    baseName = 'spring-boot-mybatis-multi-example'
     version = '0.0.1-SNAPSHOT'
 }
 
