@@ -13,7 +13,12 @@ A curated list of amazingly examples of Spring Boot, resources and shiny things.
   - [CI](#ci)
   - [Deploy](#deploy)
 - [Spring Boot Features](#spring-boot-features)
-  - [Integrating Spring Boot with Spring MVC](#integrating-spring-boot-with-spring-mvc)
+  - [Spring MVC](#spring-mvc)
+  - [Exception Handling](#exception-handling)
+  - [Logging](#logging)
+  - [HTTP Client](#http-client)
+  - [Profile](#profile)
+  - [DBCP](#dbcp)
   
 ## Tutorials
 
@@ -53,5 +58,14 @@ Project | Build | Description |
 
 ## Spring Boot Features
 
-#### Integrating Spring Boot with Spring MVC
+#### Spring MVC
 
+#### Exception Handling
+
+#### Logging
+
+#### HTTP Client
+
+#### Profile
+
+#### DBCP
