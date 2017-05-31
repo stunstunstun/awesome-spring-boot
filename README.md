@@ -27,9 +27,28 @@ Tutorials of how Spring Boot works!
 
 #### Download
 
-````
-git clone https://github.com/stunstunstun/awesome-spring-boot.git
-````
+```
+$ git clone https://github.com/stunstunstun/awesome-spring-boot.git
+```
+
+If you wanna try `spring-boot-mvc-example`, You need to move to ROOT directory in the example first.
+
+```
+$ cd awesome-spring-boot/spring-boot-mvc-example
+$ chmod +x gradlew
+```
+
+#### Test
+
+```
+$ bash gradlew test 
+```
+
+#### Run
+
+```
+$ bash gradlew run
+```
 
 #### Description
 
