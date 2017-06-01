@@ -2,6 +2,9 @@
 
 A curated list of amazingly examples of Spring Boot, resources and shiny things.
 
+<details>
+
+<!-- toc -->
 ## Contents
 
 - [Tutorials](#tutorials)
@@ -20,7 +23,11 @@ A curated list of amazingly examples of Spring Boot, resources and shiny things.
   - [DBCP](#dbcp)
   - [Embedded Servlet Containers](#embedded-servlet-containers)
   - [Profile](#profile)
-  
+
+<!-- tocstop -->
+
+<details>
+
 ## Tutorials
 
 Tutorials of how Spring Boot works!
