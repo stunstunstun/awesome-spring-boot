@@ -5,9 +5,10 @@ A curated list of amazingly examples of Spring Boot, resources and shiny things.
 
 ## Contents
 
-- [Tutorials](#tutorials)
 <details>
 <!-- toc -->
+
+- [Tutorials](#tutorials)
 - [DevOps](#devops)
   - [Environments](#environments)
   - [Create Project](#create-project)
