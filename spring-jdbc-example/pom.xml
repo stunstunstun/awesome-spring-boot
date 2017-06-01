@@ -97,8 +97,16 @@
 			<artifactId>jackson-databind</artifactId>
 			<version>2.6.3</version>
 		</dependency>		
-		
-		<!-- Test -->
+
+	  	<!-- Embedded DB -->
+	 	<dependency>
+		  	<groupId>com.h2database</groupId>
+		  	<artifactId>h2</artifactId>
+			<version>1.4.195</version>
+		  	<scope>runtime</scope>
+	  	</dependency>
+
+	  	<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.stunstun.spring.example.scheduler;
 
 import java.util.Random;

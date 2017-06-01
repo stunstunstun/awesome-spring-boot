@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.stunstun.spring.example.service;
 
 import static org.hamcrest.CoreMatchers.is;
