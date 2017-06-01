@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.stunstun.spring.user;
 
 import java.util.List;
@@ -24,23 +21,18 @@ import com.stunstun.spring.user.support.UserService;
  *
  */
 @Controller
-@RequestMapping("/account")
+@RequestMapping("/accounts")
 public class UserController {
 
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value = "/v1/users", method = RequestMethod.POST, headers = {"Content-Type=application/json"})
-	public @ResponseBody void add(@RequestBody User user) {
-		userService.addUser(user);
-	}
-	
-	@RequestMapping(value = "/v1/users", method = RequestMethod.GET, headers = {"Content-Type=application/json"})
+	@RequestMapping(value = "/v1/users", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<List<User>> getList() {
 		return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/v1/users/{id}", method = RequestMethod.GET, headers = {"Content-Type=application/json"})
+	@RequestMapping(value = "/v1/users/{id}", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<User> getEntity(@PathVariable Long id) {
 		User entity = userService.getUser(id);
 		if (entity == null) {
@@ -48,7 +40,12 @@ public class UserController {
 		}
 		return new ResponseEntity<>(entity, HttpStatus.OK);
 	}
-	
+
+	@RequestMapping(value = "/v1/users", method = RequestMethod.POST, headers = {"Content-Type=application/json"})
+	public @ResponseBody void add(@RequestBody User user) {
+		userService.addUser(user);
+	}
+
 	@RequestMapping(value = "/v1/users/{id}", method = RequestMethod.PUT, headers = {"Content-Type=application/json"})
 	public @ResponseBody void update(@PathVariable Long id, @RequestBody User user) {
 		User entity = userService.getUser(id);
@@ -59,7 +56,7 @@ public class UserController {
 		userService.updateUser(user);
 	}
 	
-	@RequestMapping(value = "/v1/users/{id}", method = RequestMethod.DELETE, headers = {"Content-Type=application/json"})
+	@RequestMapping(value = "/v1/users/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody void delete(@PathVariable Long id) {
 		User entity = userService.getUser(id);
 		if (entity == null) {

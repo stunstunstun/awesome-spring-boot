@@ -1,4 +1,3 @@
-
 package com.stunstun.spring.repository;
 
 import com.stunstun.spring.repository.entity.User;

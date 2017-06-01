@@ -14,3 +14,4 @@ target/
 .project
 spring-*/src/main/java/META-INF/MANIFEST.MF
 .idea
+.iml

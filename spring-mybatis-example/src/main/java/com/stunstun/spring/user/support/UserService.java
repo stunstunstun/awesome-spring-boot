@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.stunstun.spring.user.support;
 
 import java.util.List;

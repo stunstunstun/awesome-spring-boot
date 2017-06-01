@@ -28,7 +28,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-test:3.2.15.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-jdbc:7.0.65" level="project" />
     <orderEntry type="library" name="Maven: org.apache.tomcat:tomcat-juli:7.0.65" level="project" />
-    <orderEntry type="library" name="Maven: mysql:mysql-connector-java:5.1.37" level="project" />
+    <orderEntry type="library" scope="RUNTIME" name="Maven: com.h2database:h2:1.4.195" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.3.0" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis-spring:1.2.3" level="project" />
     <orderEntry type="library" name="Maven: ch.qos.logback:logback-classic:1.1.3" level="project" />

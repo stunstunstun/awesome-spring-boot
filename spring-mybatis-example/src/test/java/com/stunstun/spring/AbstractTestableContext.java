@@ -7,7 +7,7 @@ import org.springframework.test.context.transaction.TransactionConfiguration;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * @author MinHyuckJung(chujinnoon@joycity.com)
+ * @author stunstun
  * @date 2012. 10. 19.
  */
 @Transactional
