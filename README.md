@@ -27,15 +27,11 @@ Tutorials of how Spring Boot works!
 
 #### Download
 
+If you wanna try `spring-boot-mybatis-example`, You need to move to ROOT directory in the example first.
+
 ```
 $ git clone https://github.com/stunstunstun/awesome-spring-boot.git
-```
-
-If you wanna try `spring-boot-mvc-example`, You need to move to ROOT directory in the example first.
-
-```
-$ cd awesome-spring-boot/spring-boot-mvc-example
-$ chmod +x gradlew
+$ cd awesome-spring-boot/spring-boot-mybatis-example
 ```
 
 #### Test
@@ -47,7 +43,7 @@ $ bash gradlew test
 #### Run
 
 ```
-$ bash gradlew run
+$ bash gradlew bootRun
 ```
 
 #### Description
