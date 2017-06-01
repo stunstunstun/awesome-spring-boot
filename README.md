@@ -2,12 +2,12 @@
 
 A curated list of amazingly examples of Spring Boot, resources and shiny things.
 
-<details>
 
-<!-- toc -->
 ## Contents
 
 - [Tutorials](#tutorials)
+<details>
+<!-- toc -->
 - [DevOps](#devops)
   - [Environments](#environments)
   - [Create Project](#create-project)
@@ -25,8 +25,7 @@ A curated list of amazingly examples of Spring Boot, resources and shiny things.
   - [Profile](#profile)
 
 <!-- tocstop -->
-
-<details>
+</details>
 
 ## Tutorials
 
