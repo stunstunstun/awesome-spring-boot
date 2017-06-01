@@ -1,13 +1,10 @@
-/**
- * 
- */
+
 package com.stunstun.spring.repository;
 
-import java.util.List;
-
+import com.stunstun.spring.repository.entity.User;
 import org.apache.ibatis.annotations.Param;
 
-import com.stunstun.spring.repository.entity.User;
+import java.util.List;
 
 /**
  * @author stunstun

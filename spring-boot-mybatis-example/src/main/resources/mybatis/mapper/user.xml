@@ -4,16 +4,14 @@
 	<select id="selectList" resultType="User">
 		SELECT
 		 id AS id,
-		 username AS userName,
-		 enc_password AS password
+		 username AS userName
 		FROM user
 	</select>
 	
 	<select id="selectOne" resultType="User" parameterType="Long">
 		SELECT
 		 id AS id,
-		 username AS userName,
-		 enc_password AS password
+		 username AS userName
 		FROM user
 		WHERE user.id = #{value}
 	</select>
@@ -21,27 +19,23 @@
 	<select id="selectByUserName" resultType="User">
 		SELECT
 		 id AS id,
-		 username AS userName,
-		 enc_password AS password
+		 username AS userName
 		FROM user
 		WHERE user.username = #{userName}
 	</select>
 	
 	<insert id="insert" parameterType="com.stunstun.spring.repository.entity.User">
 		INSERT INTO user (
-		username,
-		enc_password
-		) 
+		username
+		)
 		VALUES (
-		#{userName},
-		#{password}
+		#{userName}
 		)
 	</insert>
 	
 	<update id="update" parameterType="com.stunstun.spring.repository.entity.User">
 		UPDATE user SET
-		username = #{userName},
-		enc_password = #{password}
+		username = #{userName}
 		WHERE user.id = #{id}
 	</update>
 	

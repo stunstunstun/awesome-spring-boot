@@ -8,12 +8,8 @@ package com.stunstun.spring.repository.entity;
  *
  */
 public class User {
-
 	private Long id;
-	
 	private String userName;
-	
-	private String password;
 
 	@Override
 	public boolean equals(Object other) {
@@ -49,13 +45,5 @@ public class User {
 	
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
 	}
 }

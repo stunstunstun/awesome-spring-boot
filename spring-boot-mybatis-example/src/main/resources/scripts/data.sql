@@ -1,0 +1,1 @@
+INSERT INTO USER(USERNAME) VALUES ('stunstunstun')

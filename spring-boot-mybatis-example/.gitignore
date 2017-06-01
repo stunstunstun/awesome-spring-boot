@@ -2,6 +2,7 @@
 .settings
 .springBeans
 .gradle
+.idea
 bin
 
 /build
