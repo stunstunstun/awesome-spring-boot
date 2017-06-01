@@ -3,6 +3,8 @@
 .springBeans
 .gradle
 bin
+.idea
+.iml
 
 /build
 buildSrc/build

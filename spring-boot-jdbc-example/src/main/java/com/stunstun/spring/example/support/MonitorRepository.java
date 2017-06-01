@@ -1,4 +1,3 @@
-
 package com.stunstun.spring.example.support;
 
 import org.slf4j.Logger;

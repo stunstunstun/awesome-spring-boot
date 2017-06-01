@@ -21,7 +21,7 @@ public class MonitorController {
 	@Autowired
 	private MonitorService monitorService;
 
-	@RequestMapping(value = "/status", method = RequestMethod.GET, headers = {"Content-Type=application/json"})
+	@RequestMapping(value = "/status", method = RequestMethod.GET)
 	public @ResponseBody ResponseEntity<Status> l7check() {
 		Status status = new Status(monitorService.isEnable());
 		return new ResponseEntity<>(status, HttpStatus.OK);

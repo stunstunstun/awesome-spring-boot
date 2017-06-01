@@ -168,7 +168,14 @@
 					<webappDirectory>../../deploy</webappDirectory>
 				</configuration>
 			</plugin>
-			
+
+			<!-- Apache Maven Tomcat Plugin-->
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
+			</plugin>
+
 			<!-- Maven Javadoc Plugin -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
