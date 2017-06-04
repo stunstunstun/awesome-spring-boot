@@ -1,6 +1,6 @@
 package com.stunstun.spring;
 
-import com.stunstun.spring.example.support.MonitorRepository;
+import com.stunstun.spring.service.UserService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,14 +12,14 @@ public class SpringBootJdbcExampleApplication implements CommandLineRunner {
         SpringApplication.run(SpringBootJdbcExampleApplication.class, args);
     }
 
-    private final MonitorRepository monitorRepository;
+    private final UserService userService;
 
-    public SpringBootJdbcExampleApplication(MonitorRepository monitorRepository) {
-        this.monitorRepository = monitorRepository;
+    public SpringBootJdbcExampleApplication(UserService userService) {
+        this.userService = userService;
     }
 
     @Override
     public void run(String... strings) throws Exception {
-        System.out.println(monitorRepository.selectStatus());
+        System.out.println(userService.findAll());
     }
 }

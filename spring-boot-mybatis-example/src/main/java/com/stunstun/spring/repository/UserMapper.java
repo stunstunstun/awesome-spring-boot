@@ -11,15 +11,17 @@ import java.util.List;
  */
 public interface UserMapper {
 
-	public List<User> selectList();
+	public List<User> findAll();
+
+	public Boolean exists(Long id);
+
+	public User findOne(Long id);
 	
-	public User selectOne(Long id);
+	public User findByUserName(@Param("userName") String userName);
 	
-	public User selectByUserName(@Param("userName") String userName);
-	
-	public void insert(User user);
+	public void save(User user);
 	
 	public void update(User user);
-	
+
 	public void delete(User user);
 }

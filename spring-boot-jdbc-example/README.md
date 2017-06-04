@@ -1,8 +1,14 @@
 
-## Maven
+## Gradle
+
+#### Build
+
+```
+$ gradlew assemble
+```
 
 #### Test
 
 ```
-$ maven test
+$ gradlew test
 ```

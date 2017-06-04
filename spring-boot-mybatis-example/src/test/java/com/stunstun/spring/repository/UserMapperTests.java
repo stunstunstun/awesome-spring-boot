@@ -1,6 +1,5 @@
 package com.stunstun.spring.repository;
 
-import com.stunstun.spring.SpringBootMybatisExampleApplication;
 import com.stunstun.spring.repository.entity.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -12,7 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.*;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assert.assertThat;
 
 /**
@@ -22,43 +22,58 @@ import static org.junit.Assert.assertThat;
 @Transactional
 @Rollback
 @RunWith(SpringRunner.class)
-@SpringBootTest(classes = SpringBootMybatisExampleApplication.class)
+@SpringBootTest
 public class UserMapperTests {
-	public static final String ENTITY_NAME = "stunstunstun";
+
+	public static final String USER_NAME = "stunstunstun";
 
 	@Autowired
 	private UserMapper userMapper;
-	private User entity;
 
 	@Test
-	public void selectOne() {
-		User user = userMapper.selectOne(1L);
-		assertThat(user, notNullValue());
-	}
-
-	@Test
-	public void selectList() {
-		List<User> users = userMapper.selectList();
+	public void findAll() {
+		List<User> users = userMapper.findAll();
 		assertThat(users, notNullValue());
+		for (User user : users) {
+			System.out.println(user);
+		}
 	}
 
 	@Test
-	public void delete() {
-		User user = userMapper.selectByUserName(ENTITY_NAME);
-		userMapper.delete(user);
+	public void findByUserName() {
+		User entity = userMapper.findByUserName(USER_NAME);
+		assertThat(entity, notNullValue());
+	}
 
-		user = userMapper.selectByUserName(ENTITY_NAME);
-		assertThat(user, nullValue());
+	@Test
+	public void findOne() {
+		User entity = userMapper.findOne(1L);
+		assertThat(entity, notNullValue());
+	}
+
+	@Test
+	public void save() {
+		User user = new User("peter");
+		userMapper.save(user);
+
+		List<User> users = userMapper.findAll();
+		assertThat(users.size(), is(2));
 	}
 
 	@Test
 	public void update() {
-		User user = userMapper.selectByUserName(ENTITY_NAME);
+		User user = userMapper.findOne(1L);
 		user.setUserName("peter");
 
 		userMapper.update(user);
+		User updated = userMapper.findOne(user.getId());
+		assertThat(updated.getUserName(), is("peter"));
+	}
 
-		User updatedUser = userMapper.selectByUserName("peter");
-		assertThat(user.getId(), is(updatedUser.getId()));
+	@Test
+	public void delete() {
+		User user = userMapper.findOne(1L);
+		userMapper.delete(user);
+		assertThat(userMapper.exists(1L), is(false));
 	}
 }

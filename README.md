@@ -59,7 +59,8 @@ Project | Build | Description |
 ---|---|----
 [spring-jdbc-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-jdbc-example) | Maven | Integrating Spring Framework with JDBC
 [spring-mybatis-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-mybatis-example) | Maven | Integrating Spring Framework with myBatis
-[spring-boot-jdbc-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-jdbc-example) | Maven | Integrating Spring Boot with JDBC
+[spring-boot-jdbc-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-jdbc-example) | Gradle | Integrating Spring Boot with JDBC
+[spring-boot-jpa-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-jpa-example) | Gradle | Integrating Spring Boot with JPA
 [spring-boot-mybatis-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-mybatis-example)| Gradle | Integrating Spring Boot with myBatis
 [spring-boot-mybatis-multi-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-mybatis-multi-example) | Gradle | Integrating Spring Boot with multiple datasources
 [spring-boot-mvc-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-mvc-example) | Gradle | Integrating Spring Boot with Spring MVC
