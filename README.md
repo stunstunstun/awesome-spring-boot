@@ -10,20 +10,11 @@ A curated list of amazingly examples of Spring Boot, resources and shiny things.
 
 - [Tutorials](#tutorials)
 - [DevOps](#devops)
-  - [Environments](#environments)
-  - [Create Project](#create-project)
+  - [Prerequisite](#prerequisite)
   - [Test](#test)
   - [Build](#build)
-  - [CI](#ci)
-  - [Deploy](#deploy)
+  - [Run](#run)
 - [Spring Boot Features](#spring-boot-features)
-  - [Spring MVC](#spring-mvc)
-  - [Exception Handling](#exception-handling)
-  - [Logging](#logging)
-  - [HTTP Client](#http-client)
-  - [DBCP](#dbcp)
-  - [Embedded Servlet Containers](#embedded-servlet-containers)
-  - [Profile](#profile)
 
 <!-- tocstop -->
 </details>
@@ -31,29 +22,6 @@ A curated list of amazingly examples of Spring Boot, resources and shiny things.
 ## Tutorials
 
 Tutorials of how Spring Boot works!
-
-#### Download
-
-If you wanna try `spring-boot-mybatis-example`, You need to move to ROOT directory in the example first.
-
-```
-$ git clone https://github.com/stunstunstun/awesome-spring-boot.git
-$ cd awesome-spring-boot/spring-boot-mybatis-example
-```
-
-#### Test
-
-```
-$ bash gradlew test 
-```
-
-#### Run
-
-```
-$ bash gradlew bootRun
-```
-
-#### Description
 
 Project | Build | Description |
 ---|---|----
@@ -66,33 +34,83 @@ Project | Build | Description |
 [spring-boot-mvc-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-mvc-example) | Gradle | Integrating Spring Boot with Spring MVC
 [spring-boot-gradle-multi-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-jdbc-example) | Gradle | Multiple modules structures in Gradle
 
+#### Download
+
+If you wanna try `spring-boot-jdbc-example`, You need to move to ROOT directory of that example first.
+
+```
+$ git clone https://github.com/stunstunstun/awesome-spring-boot.git
+$ cd awesome-spring-boot/spring-boot-mybatis-example
+```
+
 ## DevOps
 
-#### Environments
+#### Prerequisite
 
-#### Create Project
-    
+Your operating system must have the JDK installed and it's recommended that you install the IDE to look up the source code.
+
 #### Test
+
+Check the test case with the `@Test` annotation.
+
+```
+$ gradlew test 
+```
 
 #### Build
 
-#### CI
+Build the project and create executable jar and war files.
 
-#### Deploy
+```
+$ gradlew assemble 
+```
+
+It doesn't work? You should check execution permission.
+
+```
+$ chmod +x gradlew
+```
+
+#### Run
+
+An example with spring-web-starter can be connected by Web Browser
+
+- localhost:8080
+
+```
+$ gradlew bootRun
+```
 
 ## Spring Boot Features
 
-#### Spring MVC
+#### Bootstrap By Spring Boot CLI
 
-#### Exception Handling
+`Install Spring Boot CLI`
+```
+$ brew tap pivotal/tap
+$ brew install springboot
+$ spring --version
+```
+
+`Create Project`
+```
+$ spring init --build=gradle --java-version=1.8 --dependencies=data-jpa spring-boot-jpa-example
+```
+
+#### Spring Boot Test
+
+#### Data Access
 
 #### Logging
 
 #### HTTP Client
 
-#### DBCP
-
 #### Embedded Servlet Containers
 
-#### Profile
+#### Profiles
 
+#### Actuator
+
+#### Hotswapping
+
+#### Deploy To AWS, Cloud Foundry
