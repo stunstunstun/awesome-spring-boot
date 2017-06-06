@@ -1,12 +1,12 @@
-package com.stunstun.examples;
+package com.stunstun.spring;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ApiBootApplication {
+public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(ApiBootApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }

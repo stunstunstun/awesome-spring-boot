@@ -97,20 +97,48 @@ $ spring --version
 $ spring init --build=gradle --java-version=1.8 --dependencies=data-jpa spring-boot-jpa-example
 ```
 
+#### Spring Core
+- http://vojtechruzicka.com/field-dependency-injection-considered-harmful/
+
 #### Spring Boot Test
+- https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-testing.html
+- https://spring.io/blog/2016/04/15/testing-improvements-in-spring-boot-1-4
+- https://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html
+- http://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/mock/mockito/MockBean.html
 
 #### Data Access
+- https://spring.io/guides/gs/accessing-data-jpa/
+- https://spring.io/guides/gs/accessing-data-mysql/
+- https://docs.spring.io/spring-boot/docs/current/reference/html/howto-database-initialization.html
 
 #### Logging
+- https://docs.spring.io/spring-boot/docs/current/reference/html/howto-logging.html
+- https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-logging.html
+- https://www.slideshare.net/whiteship/ss-47273947
 
 #### HTTP Client
+- https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-restclient.html
 
 #### Embedded Servlet Containers
+- https://docs.spring.io/spring-boot/docs/current/reference/html/howto-embedded-servlet-containers.html
 
 #### Profiles
+- https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-profiles.html
+- https://docs.spring.io/spring-boot/docs/current/reference/html/howto-properties-and-configuration.html
+- https://docs.spring.io/spring-boot/docs/current/reference/html/howto-database-initialization.html
 
 #### Actuator
+- https://spring.io/guides/gs/actuator-service/
+- https://github.com/spring-projects/spring-boot/tree/master/spring-boot-actuator
+- https://docs.spring.io/spring-boot/docs/current/reference/html/howto-actuator.html
+- https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-monitoring.html
+- https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-endpoints.html 
 
 #### Hotswapping
+- https://docs.spring.io/spring-boot/docs/current/reference/html/howto-hotswapping.html
+- https://docs.spring.io/spring-boot/docs/current/reference/html/using-boot-devtools.html
+- https://spring.io/blog/2015/06/17/devtools-in-spring-boot-1-3
 
 #### Deploy To AWS, Cloud Foundry
+- https://docs.spring.io/spring-boot/docs/current/reference/html/howto-traditional-deployment.html
+- https://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment.html

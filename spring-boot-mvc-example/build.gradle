@@ -1,46 +1,31 @@
 buildscript {
+    ext {
+        springBootVersion = '1.5.3.RELEASE'
+    }
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.3.RELEASE")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
     }
 }
 
 apply plugin: 'java'
 apply plugin: 'war'
 apply plugin: 'eclipse'
-apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
+
+wrapper.gradleVersion = '3.5'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
 }
 
-def vJavaLang = '1.8'
-wrapper.gradleVersion = '3.5'
-
-sourceCompatibility = vJavaLang
-targetCompatibility = vJavaLang
-
-jar {
-    baseName = rootProject.name
-}
-
-war {
-    baseName = rootProject.name
-}
-
-springBoot {
-    mainClass = 'com.stunstun.examples.ApiBootApplication'
-}
-
-println GradleVersion.current()
-println "System JVM Location " + System.getProperty("java.home")
-println "Project JVM Version $vJavaLang"
-
-
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    testCompile("junit:junit")
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile('org.springframework.boot:spring-boot-starter-web')
+    runtime('com.h2database:h2')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
 }

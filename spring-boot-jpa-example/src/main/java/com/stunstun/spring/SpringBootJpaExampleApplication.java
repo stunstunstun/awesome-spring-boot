@@ -1,6 +1,6 @@
 package com.stunstun.spring;
 
-import com.stunstun.spring.repository.UserRepository;
+import com.stunstun.spring.domain.UserRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
