@@ -1,17 +1,25 @@
-.DS_Store
+.gradle
+/build/
+!gradle/wrapper/gradle-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
 .settings
 .springBeans
-.gradle
-bin
 
-/build
-buildSrc/build
-/spring-*/build
-target/
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
 
-# Eclipse artifacts, including WTP generated manifests
-.classpath
-.project
-.factorypath
-spring-*/src/main/java/META-INF/MANIFEST.MF
-/.apt_generated/
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
