@@ -5,15 +5,19 @@ You can access from the browser via the address below
 
 #### APIs Summary
 
+Sets for RESTful API
+
 ```
 GET /users 
-GET /users/{id}
 POST /users
+GET /users/{id}
 PUT /users/{id}
 DELETE /users/{id}
 ```
 
 #### H2 Database Console
+
+You can manage H2 Database by Console pages
 
 ```
 GET /h2-console
@@ -34,21 +38,21 @@ $ gradlew assemble
 #### Running as a packaged application
 
 ```
-$ java -jar build/libs/spring-boot-mvc-example.jar
+$ java -jar build/libs/spring-boot-mvc-example-0.0.1-SNAPSHOT.war
 ```
 
-#### Using Gradle Plugin
+#### Using Spring Boot Plugin
 
 ```
-$ bash gradlew bootRun
+$ gradlew bootRun
 ```
 
 ## Deploy
 
-You can make war file to deploy like below
+You can create war file to deploy like below
 
 ```
-$ gradle bootRepackage
+$ gradlew bootRepackage
 ```
 
 
