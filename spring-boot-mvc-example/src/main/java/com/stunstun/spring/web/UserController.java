@@ -24,19 +24,19 @@ public class UserController {
         return new ResponseEntity<Iterable<User>>(userService.findAll(), HttpStatus.OK);
     }
 
-    @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
-    public ResponseEntity<User> create(@RequestBody User user) {
-        return new ResponseEntity<User>(userService.save(user), HttpStatus.OK);
-    }
-
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
     public ResponseEntity<User> findOne(@PathVariable Long id) {
         return new ResponseEntity<User>(userService.findOne(id), HttpStatus.OK);
     }
 
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+    public ResponseEntity<User> create(@RequestBody User user) {
+        return new ResponseEntity<User>(userService.save(user), HttpStatus.CREATED);
+    }
+
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
     public ResponseEntity<User> update(@RequestBody User user, @PathVariable Long id) {
-        return new ResponseEntity<User>(userService.update(user), HttpStatus.OK);
+        return new ResponseEntity<User>(userService.update(user), HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)

@@ -106,6 +106,10 @@ $ spring init --build=gradle --java-version=1.8 --dependencies=data-jpa spring-b
 - https://docs.spring.io/spring/docs/current/spring-framework-reference/html/integration-testing.html
 - http://docs.spring.io/spring-boot/docs/current/api/org/springframework/boot/test/mock/mockito/MockBean.html
 
+#### Spring Data REST
+- https://docs.spring.io/spring-data/rest/docs/current/reference/html/
+
+
 #### Data Access
 - https://spring.io/guides/gs/accessing-data-jpa/
 - https://spring.io/guides/gs/accessing-data-mysql/
