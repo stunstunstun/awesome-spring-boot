@@ -41,13 +41,13 @@ public class GoogleSecurity {
     /**
      * Create signature by signing
      * @param plainText the signed JSON string (signed, not encrypted)
-     * @param encodeKey the base64-encoded private key to use for signing.
+     * @param encodedPrivateKey the base64-encoded private key to use for signing.
      * @return signature text
      */
-    public static String sign(String plainText, byte[] encodeKey) {
+    public static String sign(String plainText, byte[] encodedPrivateKey) {
         try {
             Signature privateSignature = Signature.getInstance(SIGNATURE_ALGORITHM);
-            privateSignature.initSign(GoogleSecurity.generatePrivateKey(encodeKey));
+            privateSignature.initSign(GoogleSecurity.generatePrivateKey(encodedPrivateKey));
             privateSignature.update(plainText.getBytes(CHARSET));
             byte[] signature = privateSignature.sign();
             return Base64.getEncoder().encodeToString(signature);
