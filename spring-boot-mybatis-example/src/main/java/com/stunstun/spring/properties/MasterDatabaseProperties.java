@@ -13,6 +13,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 public class MasterDatabaseProperties implements DatabaseProperties {
 	
 	public static final String PREFIX = "datasource.master";
+
 	public static final boolean DEFAULT_INITIALIZE = false;
 
 	private boolean initialize = DEFAULT_INITIALIZE;

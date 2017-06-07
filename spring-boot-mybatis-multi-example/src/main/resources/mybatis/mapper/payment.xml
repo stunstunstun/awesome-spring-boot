@@ -1,0 +1,60 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.stunstun.spring.repository.PaymentMapper">
+
+	<select id="findAll" resultType="Transaction">
+		SELECT
+		id AS id,
+		user_name AS userName,
+		price AS price
+		FROM transaction
+	</select>
+
+	<select id="exists" resultType="Boolean">
+		SELECT EXISTS (
+		SELECT 1
+		FROM transaction
+		WHERE transaction.id = #{value}
+		)
+	</select>
+
+	<select id="findOne" resultType="Transaction" parameterType="Long">
+		SELECT
+		id AS id,
+		user_name AS userName,
+		price AS price
+		FROM transaction
+		WHERE transaction.id = #{value}
+	</select>
+
+	<select id="findByUserName" resultType="Transaction">
+		SELECT
+		id AS id,
+		user_name AS userName,
+		price AS price
+		FROM transaction
+		WHERE transaction.user_name = #{userName}
+	</select>
+
+	<insert id="save" parameterType="com.stunstun.spring.repository.entity.Transaction">
+		INSERT INTO transaction (
+		user_name,
+		price
+		)
+		VALUES (
+		#{userName},
+		#{price}
+		)
+	</insert>
+
+	<update id="update" parameterType="com.stunstun.spring.repository.entity.Transaction">
+		UPDATE transaction SET
+		user_name = #{userName},
+		price = #{price}
+		WHERE transaction.id = #{id}
+	</update>
+
+	<delete id="delete" parameterType="com.stunstun.spring.repository.entity.Transaction">
+		DELETE FROM transaction WHERE transaction.id = #{id}
+	</delete>
+
+</mapper>

@@ -9,7 +9,7 @@
  
     <logger name="org.springframework" level="INFO" />
  
- 	<logger name="com.stunstun" level="INFO" />
+ 	<logger name="com.stunstun.spring" level="DEBUG" />
  
     <root level="INFO">
         <appender-ref ref="STDOUT" />

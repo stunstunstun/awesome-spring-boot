@@ -1,21 +1,24 @@
 spring:
   profiles: default
+
 datasource:
-  master:
-      driver-class-name: "com.mysql.jdbc.Driver"
-      url: "jdbc:mysql://hola-apps-dev.co8c0mwl4dtb.ap-northeast-2.rds.amazonaws.com:3306/github?useUnicode=true&charaterEncoding=utf-8"
-      user-name: "guest_user"
-      password: "holaguest1234"
+  user:
+      initialize: true
+      driver-class-name: "org.h2.Driver"
+      url: "jdbc:h2:mem:test;MVCC=true;DB_CLOSE_DELAY=-1;MODE=MySQL"
+      user-name: "sa"
+      password: ""
       initial-size: 10
       max-active: 10
       max-idle: 10
       min-idle: 10
       max-wait: 3000
-  slave:
-      driver-class-name: "com.mysql.jdbc.Driver"
-      url: "jdbc:mysql://hola-apps-dev.co8c0mwl4dtb.ap-northeast-2.rds.amazonaws.com:3306/github?useUnicode=true&charaterEncoding=utf-8"
-      user-name: "guest_user"
-      password: "holaguest1234"
+  payment:
+      initialize: true
+      driver-class-name: "org.h2.Driver"
+      url: "jdbc:h2:mem:test2;MVCC=true;DB_CLOSE_DELAY=-1;MODE=MySQL"
+      user-name: "sa"
+      password: ""
       initial-size: 10
       max-active: 10
       max-idle: 10

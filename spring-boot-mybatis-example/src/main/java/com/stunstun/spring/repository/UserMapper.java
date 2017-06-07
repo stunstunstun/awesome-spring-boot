@@ -13,12 +13,12 @@ public interface UserMapper {
 
 	public List<User> findAll();
 
-	public Boolean exists(Long id);
+	public List<User> findByUserName(@Param("userName") String userName);
 
 	public User findOne(Long id);
-	
-	public User findByUserName(@Param("userName") String userName);
-	
+
+	public Boolean exists(Long id);
+
 	public void save(User user);
 	
 	public void update(User user);

@@ -1,78 +1,76 @@
-/**
- * 
- */
 package com.stunstun.spring.repository;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.CoreMatchers.nullValue;
-import static org.junit.Assert.assertThat;
+import com.stunstun.spring.repository.entity.User;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import com.stunstun.spring.AbstractTestableContext;
-import com.stunstun.spring.repository.entity.User;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author stunstun
  *
  */
-public class UserMapperTests extends AbstractTestableContext {
-	
+@Transactional
+@RunWith(SpringRunner.class)
+@SpringBootTest
+public class UserMapperTests {
+
 	@Autowired
 	private UserMapper userMapper;
-	
-	private User entity;
-	
-	@Before
-	public void setUp() {
-		entity = new User();
-		entity.setUserName("stunstun");
-		entity.setPassword("stunstun");
-		
-		userMapper.insert(entity);
-		entity = userMapper.selectByUserName("stunstun");
-	}
-	
+
 	@Test
-	public void insertAndDelete() {
-		assertThat(entity, notNullValue());
-		
-		User user = userMapper.selectByUserName("stunstun");
-		userMapper.delete(user);
-	
-		user = userMapper.selectByUserName("stunstun");
-		assertThat(user, nullValue());
+	public void findAll() {
+		List<User> users = userMapper.findAll();
+		users.forEach(user -> {
+			System.out.println(user);
+			assertThat(user.getUserName()).isNotNull();
+		});
 	}
-	
+
 	@Test
-	public void updateAndSelectByUserName() {
-		assertThat(entity, notNullValue());
-		
-		User user = userMapper.selectByUserName("stunstun");
-		user.setUserName("stunstunstun");
-		
+	public void findByUserName() {
+		List<User> users = userMapper.findByUserName("stunstunstun");
+		users.forEach(user -> {
+			System.out.println(user);
+			assertThat(user.getUserName()).isNotNull();
+		});
+	}
+
+	@Test
+	public void findOne() {
+		User entity = userMapper.findOne(1L);
+		assertThat(entity).isNotNull();
+	}
+
+	@Test
+	public void save() {
+		User user = new User("peter");
+		userMapper.save(user);
+
+		List<User> users = userMapper.findAll();
+		assertThat(users.size()).isEqualTo(2);
+	}
+
+	@Test
+	public void update() {
+		User user = userMapper.findOne(1L);
+		user.setUserName("peter");
+
 		userMapper.update(user);
-		
-		User updatedUser = userMapper.selectByUserName("stunstunstun");
-		assertThat(user.getId(), is(updatedUser.getId()));
+		User updated = userMapper.findOne(user.getId());
+		assertThat(updated.getUserName()).isEqualTo("peter");
 	}
-	
+
 	@Test
-	public void selectList() {
-		List<User> users = userMapper.selectList();
-		assertThat(users, notNullValue());
-	}
-	
-	@Test
-	public void selectOne() {
-		assertThat(entity, notNullValue());
-		
-		User user = userMapper.selectOne(entity.getId());
-		assertThat(user, notNullValue());
+	public void delete() {
+		User user = userMapper.findOne(1L);
+		userMapper.delete(user);
+		assertThat(userMapper.exists(1L)).isFalse();
 	}
 }

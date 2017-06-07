@@ -9,10 +9,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author stunstun
  *
  */
-@ConfigurationProperties(prefix = SlaveDatabaseProperties.PREFIX)
-public class SlaveDatabaseProperties implements DatabaseProperties {
+@ConfigurationProperties(prefix = PaymentDatabaseProperties.PREFIX)
+public class PaymentDatabaseProperties implements DatabaseProperties {
 
-	public static final String PREFIX = "datasource.slave"; 
+	public static final String PREFIX = "datasource.payment";
+
+	public static final boolean DEFAULT_INITIALIZE = false;
+
+	private boolean initialize = DEFAULT_INITIALIZE;
 
 	private String driverClassName;
 	
@@ -31,6 +35,14 @@ public class SlaveDatabaseProperties implements DatabaseProperties {
 	private int minIdle;
 	
 	private int maxWait;
+
+	public boolean isInitialize() {
+		return initialize;
+	}
+
+	public void setInitialize(boolean initialize) {
+		this.initialize = initialize;
+	}
 
 	public String getDriverClassName() {
 		return driverClassName;
@@ -106,6 +118,6 @@ public class SlaveDatabaseProperties implements DatabaseProperties {
 	
 	@Override
 	public String toString() {
-		return "SlaveDatabaseProperties[" + this.driverClassName + "]";
+		return "PaymentDatabaseProperties[" + this.driverClassName + "]";
 	}
 }

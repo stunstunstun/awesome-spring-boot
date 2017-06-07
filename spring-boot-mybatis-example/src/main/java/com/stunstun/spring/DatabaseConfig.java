@@ -1,5 +1,6 @@
 package com.stunstun.spring;
 
+import com.stunstun.spring.properties.DatabaseProperties;
 import com.stunstun.spring.properties.MasterDatabaseProperties;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionFactoryBean;
@@ -23,8 +24,39 @@ import javax.sql.DataSource;
  * @author stunstun
  *
  */
+abstract class DatabaseConfig {
+
+    abstract DataSource dataSource();
+
+	abstract void initialize(org.apache.tomcat.jdbc.pool.DataSource dataSource);
+
+    void configureDataSource(org.apache.tomcat.jdbc.pool.DataSource dataSource, DatabaseProperties databaseProperties) {
+    	dataSource.setDriverClassName(databaseProperties.getDriverClassName());
+    	dataSource.setUrl(databaseProperties.getUrl());
+    	dataSource.setUsername(databaseProperties.getUserName());
+    	dataSource.setPassword(databaseProperties.getPassword());
+		dataSource.setInitialSize(databaseProperties.getInitialSize());
+        dataSource.setMaxActive(databaseProperties.getMaxActive());
+        dataSource.setMaxIdle(databaseProperties.getMaxIdle());
+        dataSource.setMinIdle(databaseProperties.getMinIdle());
+        dataSource.setMaxWait(databaseProperties.getMaxWait());
+        dataSource.setTestOnBorrow(false);
+        dataSource.setTestOnReturn(false);
+
+		if(databaseProperties.isInitialize())
+			initialize(dataSource);
+    }
+}
+
+@Configuration
 @EnableConfigurationProperties(value = MasterDatabaseProperties.class)
-public abstract class DatabaseConfig {
+@EnableTransactionManagement
+@MapperScan(basePackages = {DefaultDatabaseConfig.BASE_PACKAGE_PREFIX}, sqlSessionFactoryRef = "masterSqlSessionFactory")
+class DefaultDatabaseConfig extends DatabaseConfig {
+
+	public static final String BASE_PACKAGE_PREFIX = "com.stunstun.spring.repository";
+
+	public static final String ENTITY_PACKAGE_PREFIX = "com.stunstun.spring.repository.entity";
 
 	@Autowired
 	private ApplicationContext applicationContext;
@@ -32,9 +64,15 @@ public abstract class DatabaseConfig {
 	@Autowired
 	private MasterDatabaseProperties masterDatabaseProperties;
 
-    @Bean
-    public abstract DataSource dataSource();
+	@Bean(destroyMethod = "close")
+	@Override
+	public DataSource dataSource() {
+		org.apache.tomcat.jdbc.pool.DataSource dataSource = new org.apache.tomcat.jdbc.pool.DataSource();
+		configureDataSource(dataSource, masterDatabaseProperties);
+		return dataSource;
+	}
 
+	@Override
 	protected void initialize(org.apache.tomcat.jdbc.pool.DataSource dataSource) {
 		Resource schema = applicationContext.getResource("classpath:scripts/schema.sql");
 		Resource data = applicationContext.getResource("classpath:scripts/data.sql");
@@ -42,39 +80,6 @@ public abstract class DatabaseConfig {
 		DatabasePopulatorUtils.execute(databasePopulator, dataSource);
 	}
 
-    protected void configureDataSource(org.apache.tomcat.jdbc.pool.DataSource dataSource) {
-    	dataSource.setDriverClassName(masterDatabaseProperties.getDriverClassName());
-    	dataSource.setUrl(masterDatabaseProperties.getUrl());
-    	dataSource.setUsername(masterDatabaseProperties.getUserName());
-    	dataSource.setPassword(masterDatabaseProperties.getPassword());
-		dataSource.setInitialSize(masterDatabaseProperties.getInitialSize());
-        dataSource.setMaxActive(masterDatabaseProperties.getMaxActive());
-        dataSource.setMaxIdle(masterDatabaseProperties.getMaxIdle());
-        dataSource.setMinIdle(masterDatabaseProperties.getMinIdle());
-        dataSource.setMaxWait(masterDatabaseProperties.getMaxWait());
-        dataSource.setTestOnBorrow(false);
-        dataSource.setTestOnReturn(false);
-
-		if(masterDatabaseProperties.isInitialize())
-			initialize(dataSource);
-    }
-}
-
-@Configuration
-@EnableTransactionManagement
-@MapperScan(basePackages = {"com.stunstun.spring.repository"}, sqlSessionFactoryRef = "masterSqlSessionFactory")
-class DefaultDatabaseConfig extends DatabaseConfig {
-	
-	@Autowired
-	private ApplicationContext applicationContext;
-
-	@Bean(destroyMethod = "close")
-	public DataSource dataSource() {
-		org.apache.tomcat.jdbc.pool.DataSource dataSource = new org.apache.tomcat.jdbc.pool.DataSource();
-		configureDataSource(dataSource);
-		return dataSource;
-	}
-	
 	@Bean
     public PlatformTransactionManager transactionManager() {
 		DataSourceTransactionManager transactionManager = new DataSourceTransactionManager(dataSource());
@@ -86,7 +91,7 @@ class DefaultDatabaseConfig extends DatabaseConfig {
 	public SqlSessionFactory masterSqlSessionFactory() throws Exception {
 		SqlSessionFactoryBean sessionFactoryBean = new SqlSessionFactoryBean();
 		sessionFactoryBean.setDataSource(dataSource());
-		sessionFactoryBean.setTypeAliasesPackage("com.stunstun.spring.repository.entity");
+		sessionFactoryBean.setTypeAliasesPackage(DefaultDatabaseConfig.ENTITY_PACKAGE_PREFIX);
 		sessionFactoryBean.setConfigLocation(applicationContext.getResource("classpath:mybatis/mybatis-config.xml"));
 		sessionFactoryBean.setMapperLocations(applicationContext.getResources("classpath:mybatis/mapper/**/*.xml"));
 		return sessionFactoryBean.getObject();

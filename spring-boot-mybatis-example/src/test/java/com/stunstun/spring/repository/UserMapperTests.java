@@ -5,27 +5,21 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assert.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * @author stunstun
  *
  */
 @Transactional
-@Rollback
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class UserMapperTests {
-
-	public static final String USER_NAME = "stunstunstun";
 
 	@Autowired
 	private UserMapper userMapper;
@@ -33,22 +27,25 @@ public class UserMapperTests {
 	@Test
 	public void findAll() {
 		List<User> users = userMapper.findAll();
-		assertThat(users, notNullValue());
-		for (User user : users) {
+		users.forEach(user -> {
 			System.out.println(user);
-		}
+			assertThat(user.getUserName()).isNotNull();
+		});
 	}
 
 	@Test
 	public void findByUserName() {
-		User entity = userMapper.findByUserName(USER_NAME);
-		assertThat(entity, notNullValue());
+		List<User> users = userMapper.findByUserName("stunstunstun");
+		users.forEach(user -> {
+			System.out.println(user);
+			assertThat(user.getUserName()).isNotNull();
+		});
 	}
 
 	@Test
 	public void findOne() {
 		User entity = userMapper.findOne(1L);
-		assertThat(entity, notNullValue());
+		assertThat(entity).isNotNull();
 	}
 
 	@Test
@@ -57,7 +54,7 @@ public class UserMapperTests {
 		userMapper.save(user);
 
 		List<User> users = userMapper.findAll();
-		assertThat(users.size(), is(2));
+		assertThat(users.size()).isEqualTo(2);
 	}
 
 	@Test
@@ -67,13 +64,13 @@ public class UserMapperTests {
 
 		userMapper.update(user);
 		User updated = userMapper.findOne(user.getId());
-		assertThat(updated.getUserName(), is("peter"));
+		assertThat(updated.getUserName()).isEqualTo("peter");
 	}
 
 	@Test
 	public void delete() {
 		User user = userMapper.findOne(1L);
 		userMapper.delete(user);
-		assertThat(userMapper.exists(1L), is(false));
+		assertThat(userMapper.exists(1L)).isFalse();
 	}
 }

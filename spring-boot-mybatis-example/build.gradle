@@ -16,24 +16,16 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
-sourceCompatibility = javaLangVersion
-targetCompatibility = javaLangVersion
 wrapper.gradleVersion = '3.5'
+sourceCompatibility = javaLangVersion
 
 repositories {
-    jcenter()
-}
-
-jar {
-    baseName = 'spring-boot-mybatis-example'
-    version = '0.0.1-SNAPSHOT'
+    mavenCentral()
 }
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-aop")
     compile("org.springframework.boot:spring-boot-starter-jdbc")
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.springframework.boot:spring-boot-configuration-processor")
     compile("org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.0")
     
     runtime("com.h2database:h2")

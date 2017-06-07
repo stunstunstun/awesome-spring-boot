@@ -9,10 +9,14 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @author stunstun
  *
  */
-@ConfigurationProperties(prefix = MasterDatabaseProperties.PREFIX)
-public class MasterDatabaseProperties implements DatabaseProperties {
+@ConfigurationProperties(prefix = UserDatabaseProperties.PREFIX)
+public class UserDatabaseProperties implements DatabaseProperties {
 	
-	public static final String PREFIX = "datasource.master"; 
+	public static final String PREFIX = "datasource.user";
+
+	public static final boolean DEFAULT_INITIALIZE = false;
+
+	private boolean initialize = DEFAULT_INITIALIZE;
 
 	private String driverClassName;
 	
@@ -21,7 +25,7 @@ public class MasterDatabaseProperties implements DatabaseProperties {
 	private String userName;
 	
 	private String password;
-	
+
 	private int initialSize;
 	
 	private int maxActive;
@@ -31,6 +35,14 @@ public class MasterDatabaseProperties implements DatabaseProperties {
 	private int minIdle;
 	
 	private int maxWait;
+
+	public boolean isInitialize() {
+		return initialize;
+	}
+
+	public void setInitialize(boolean initialize) {
+		this.initialize = initialize;
+	}
 
 	public String getDriverClassName() {
 		return driverClassName;
@@ -106,6 +118,6 @@ public class MasterDatabaseProperties implements DatabaseProperties {
 	
 	@Override
 	public String toString() {
-		return "MasterDatabaseProperties[" + this.driverClassName + "]";
+		return "UserDatabaseProperties[" + this.driverClassName + "]";
 	}
 }
