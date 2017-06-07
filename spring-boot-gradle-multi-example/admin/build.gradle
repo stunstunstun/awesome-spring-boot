@@ -3,7 +3,6 @@ springBoot {
 }
 
 dependencies {
-    compile project(':common')
     compile project(':domain')
     compile('org.springframework.boot:spring-boot-starter-web')
 }

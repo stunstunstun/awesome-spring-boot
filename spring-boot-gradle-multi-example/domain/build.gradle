@@ -1,9 +1,9 @@
-apply plugin: 'org.springframework.boot'
-
 dependencies {
+    compile project(':common')
     compile('org.springframework.boot:spring-boot-starter-data-jpa')
 
     runtime('com.h2database:h2')
 
-    testCompile "org.springframework.boot:spring-boot-starter-test"
+    testCompile ('org.springframework.boot:spring-boot-starter-test')
+    testCompile ('com.fasterxml.jackson.core:jackson-databind')
 }

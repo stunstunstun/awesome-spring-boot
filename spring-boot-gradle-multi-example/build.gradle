@@ -13,17 +13,21 @@ buildscript {
 }
 
 wrapper.gradleVersion = '3.5'
+
 def vJavaLang = '1.8'
-
-println GradleVersion.current()
-println "System JVM Location = " + System.getProperty("java.home")
-println "Project JVM Version = $vJavaLang"
-
 def javaProject = [project('common'), project('domain'), project(':api'), project(':admin')]
 def webProject = [project(':api'), project(':admin')]
 
+println GradleVersion.current()
+println "System JVM Location = " + System.getProperty("java.home")
+println "Project JVM Version = ${vJavaLang}"
+
 configure(allprojects) {
     apply plugin: 'eclipse'
+
+	repositories {
+		jcenter()
+	}
 
     eclipse {  	
 		project.natures "org.springsource.ide.eclipse.gradle.core.nature"
@@ -31,27 +35,21 @@ configure(allprojects) {
 	         containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
 	         containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
 	    }
-	    println GradleVersion.current()
-	    println "System JVM Location = " + System.getProperty("java.home")
-	    println "Project JVM Version = $vJavaLang"
 	}	
 }
-	
+
 configure(javaProject) {
 	apply plugin: 'java'
 	apply plugin: 'jacoco'
+	apply plugin: 'org.springframework.boot'
     
     sourceCompatibility = vJavaLang
 	targetCompatibility = vJavaLang	
 	
 	ext.jacocoVersion = '0.7.6.201602180812'
 
-	repositories {
-		mavenCentral()
-	}
-
     dependencies {
-        runtime "org.jacoco:org.jacoco.agent:${jacocoVersion}"
+        runtime ("org.jacoco:org.jacoco.agent:${jacocoVersion}")
     }
 
     test {    	
@@ -77,7 +75,6 @@ configure(javaProject) {
 
 configure(webProject) {
 	apply plugin: 'war'
-	apply plugin: 'org.springframework.boot'
 
 	configurations {
 		crosstest
@@ -85,7 +82,7 @@ configure(webProject) {
 	}
 	
 	dependencies {
-		testCompile "org.springframework.boot:spring-boot-starter-test"		
+		testCompile ('org.springframework.boot:spring-boot-starter-test')
    	    crosstest project(':domain').sourceSets.test.output
 	}
 	
