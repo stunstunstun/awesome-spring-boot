@@ -1,0 +1,49 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.3.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+wrapper.gradleVersion = '3.5'
+
+configure(subprojects) {
+    apply plugin: 'java'
+    apply plugin: 'jacoco'
+    apply plugin: 'org.springframework.boot'
+
+    ext.jacocoVersion = '0.7.6.201602180812'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        runtime ("org.jacoco:org.jacoco.agent:${jacocoVersion}")
+    }
+
+    test {
+        println "[TEST] I'm ${project.name}"
+        jacoco {
+            append = false
+            destinationFile = file("${buildDir.name}/jacoco/test.exec")
+        }
+    }
+
+    jacocoTestReport {
+        group = "Project Test Reports"
+        description = "Generate Jacoco coverage reports after running tests."
+        additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
+        reports {
+            xml.enabled false
+            csv.enabled false
+            html.destination "${buildDir}/reports/jacocoHtml"
+            sourceSets sourceSets.main
+        }
+    }
+}
