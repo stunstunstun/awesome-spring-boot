@@ -1,4 +1,6 @@
-# Awesome Spring Boot
+
+
+# <img src="http://stormpath.com/wp-content/uploads/2016/05/spring-boot-logo.jpg" width="50" align="absmiddle"/> Awesome Spring Boot
 
 A curated list of amazingly examples of Spring Boot, resources and shiny things.
 
