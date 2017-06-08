@@ -1,6 +1,7 @@
 dependencies {
-    compile ('com.squareup.okhttp3:okhttp:3.8.0')
-    compile ('com.google.firebase:firebase-server-sdk:[3.0.0,)')
+    compile ('io.reactivex.rxjava2:rxjava:2.1.0')
+    compile ('com.squareup.retrofit2:retrofit:2.3.0')
+    compile ('com.google.firebase:firebase-admin:4.0.3')
 
     testCompile ('junit:junit')
     testCompile ('org.assertj:assertj-core')

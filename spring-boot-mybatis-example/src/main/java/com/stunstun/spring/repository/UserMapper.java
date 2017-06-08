@@ -1,6 +1,7 @@
 package com.stunstun.spring.repository;
 
 import com.stunstun.spring.repository.entity.User;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
  * @author stunstun
  *
  */
+@Mapper
 public interface UserMapper {
 
 	public List<User> findAll();

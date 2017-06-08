@@ -1,11 +1,11 @@
 /**
- * 
+ * Mybatis type-aliases package
  */
 package com.stunstun.spring.repository.entity;
 
 /**
- * @author stunstun
  *
+ * @author stunstun
  */
 public class User {
 

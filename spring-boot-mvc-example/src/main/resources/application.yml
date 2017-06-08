@@ -1,0 +1,15 @@
+spring:
+  profiles: default
+
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:test;MVCC=true;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=MySQL
+    username: sa
+    password:
+    tomcat:
+      initial-size: 10
+      max-active: 10
+      max-idle: 10
+      min-idle: 10
+      max-wait: 5000
+      test-on-borrow: true
