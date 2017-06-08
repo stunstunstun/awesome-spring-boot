@@ -2,8 +2,12 @@
 
 # <img src="http://stormpath.com/wp-content/uploads/2016/05/spring-boot-logo.jpg" width="50" align="absmiddle"/> Awesome Spring Boot
 
-A curated list of amazingly examples of Spring Boot, resources and shiny things.
+[![Wercker](https://img.shields.io/wercker/ci/wercker/docs.svg)]() 
+[![Wercker](https://img.shields.io/badge/spring--boot-1.5.3.RELEASE-brightgreen.svg)]()
+[![Wercker](https://img.shields.io/badge/java-8-brightgreen.svg)]()
+[![Wercker](https://img.shields.io/badge/gradle-3.5-brightgreen.svg)]()
 
+A curated list of amazingly examples of Spring Boot, resources and shiny things.
 
 ## Contents
 
