@@ -47,11 +47,8 @@ Project | Build | Description |
 
 #### Download
 
-If you wanna try `spring-boot-jdbc-example`, You need to move to ROOT directory of that example first.
-
 ```
 $ git clone https://github.com/stunstunstun/awesome-spring-boot.git
-$ cd awesome-spring-boot/spring-boot-mybatis-example
 ```
 
 ## DevOps
@@ -86,10 +83,12 @@ $ chmod +x gradlew
 
 An example with spring-web-starter can be connected by Web Browser
 
-- localhost:8080
+```
+$ gradlew :spring-boot-mvc-example:bootRun
+```
 
 ```
-$ gradlew bootRun
+GET http://localhost:8080/users
 ```
 
 ## Spring Boot Features
