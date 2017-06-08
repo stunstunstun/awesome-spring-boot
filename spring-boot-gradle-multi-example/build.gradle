@@ -12,10 +12,8 @@ buildscript {
     }
 }
 
-wrapper.gradleVersion = '3.5'
-
 def vJavaLang = '1.8'
-def javaProject = [project('common'), project('domain'), project(':api'), project(':admin')]
+def javaProject = [project(':common'), project(':domain'), project(':api'), project(':admin')]
 def webProject = [project(':api'), project(':admin')]
 
 println GradleVersion.current()
@@ -24,10 +22,6 @@ println "Project JVM Version = ${vJavaLang}"
 
 configure(allprojects) {
     apply plugin: 'eclipse'
-
-	repositories {
-		jcenter()
-	}
 
     eclipse {  	
 		project.natures "org.springsource.ide.eclipse.gradle.core.nature"
@@ -40,37 +34,14 @@ configure(allprojects) {
 
 configure(javaProject) {
 	apply plugin: 'java'
-	apply plugin: 'jacoco'
 	apply plugin: 'org.springframework.boot'
     
     sourceCompatibility = vJavaLang
-	targetCompatibility = vJavaLang	
-	
-	ext.jacocoVersion = '0.7.6.201602180812'
+	targetCompatibility = vJavaLang
 
-    dependencies {
-        runtime ("org.jacoco:org.jacoco.agent:${jacocoVersion}")
-    }
-
-    test {    	
-		println "[TEST] I'm ${project.name}"
-	    jacoco {
-	        append = false
-	        destinationFile = file("${buildDir.name}/jacoco/test.exec")
-	    }
+	repositories {
+		jcenter()
 	}
-	    
-	jacocoTestReport {	
-	    group = "Project Test Reports"
-	 	description = "Generate Jacoco coverage reports after running tests."
-	 	additionalSourceDirs = files(sourceSets.main.allJava.srcDirs)
-	    reports {
-	        xml.enabled false
-	        csv.enabled false
-	        html.destination "${buildDir}/reports/jacocoHtml"
-	  		sourceSets sourceSets.main
-	    }
-	}	
 }
 
 configure(webProject) {

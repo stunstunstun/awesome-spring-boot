@@ -1,0 +1,10 @@
+language: java
+install: true
+matrix:
+  include:
+  - jdk: oraclejdk8
+script:
+  - ./gradlew test jacocoTestReport
+cache:
+  directories:
+  - $HOME/.m2
