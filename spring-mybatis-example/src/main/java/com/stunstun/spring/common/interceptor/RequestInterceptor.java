@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 /**
- * @author MinHyuckJung(chujinnoon@joycity.com)
+ * @author stunstun
  * @date 2012. 10. 17.
  */
 

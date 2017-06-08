@@ -21,47 +21,45 @@ import com.stunstun.spring.user.support.UserService;
  *
  */
 @Controller
-@RequestMapping("/accounts")
+@RequestMapping("/users")
 public class UserController {
 
+	private final UserService userService;
+
 	@Autowired
-	private UserService userService;
-	
-	@RequestMapping(value = "/v1/users", method = RequestMethod.GET)
+	public UserController(UserService userService) {
+		this.userService = userService;
+	}
+
+	@RequestMapping(method = RequestMethod.GET, produces =  "application/json")
 	public @ResponseBody ResponseEntity<List<User>> getList() {
 		return new ResponseEntity<>(userService.getUsers(), HttpStatus.OK);
 	}
-	
-	@RequestMapping(value = "/v1/users/{id}", method = RequestMethod.GET)
-	public @ResponseBody ResponseEntity<User> getEntity(@PathVariable Long id) {
-		User entity = userService.getUser(id);
-		if (entity == null) {
-			throw new ResourceNotFoundException();
-		}
-		return new ResponseEntity<>(entity, HttpStatus.OK);
-	}
 
-	@RequestMapping(value = "/v1/users", method = RequestMethod.POST, headers = {"Content-Type=application/json"})
-	public @ResponseBody void add(@RequestBody User user) {
+	@RequestMapping(value = "/users", method = RequestMethod.POST, consumes = "application/json", produces = "application/json")
+	public @ResponseBody ResponseEntity<User> create(@RequestBody User user) {
 		userService.addUser(user);
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
 	}
 
-	@RequestMapping(value = "/v1/users/{id}", method = RequestMethod.PUT, headers = {"Content-Type=application/json"})
-	public @ResponseBody void update(@PathVariable Long id, @RequestBody User user) {
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
+	public @ResponseBody ResponseEntity<User> getEntity(@PathVariable Long id) {
+		return new ResponseEntity<>(userService.getUser(id), HttpStatus.OK);
+	}
+
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json")
+	public @ResponseBody ResponseEntity<User> update(@PathVariable Long id, @RequestBody User user) {
 		User entity = userService.getUser(id);
 		if (entity == null) {
 			throw new ResourceNotFoundException();
 		}
 		user.setId(id);
 		userService.updateUser(user);
+		return new ResponseEntity<>(user, HttpStatus.CREATED);
 	}
 	
-	@RequestMapping(value = "/v1/users/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/users/{id}", method = RequestMethod.DELETE)
 	public @ResponseBody void delete(@PathVariable Long id) {
-		User entity = userService.getUser(id);
-		if (entity == null) {
-			throw new ResourceNotFoundException();
-		}
-		userService.deleteUser(entity);
+		userService.deleteUser(id);
 	}
 }

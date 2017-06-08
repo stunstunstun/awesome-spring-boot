@@ -18,41 +18,36 @@ import com.stunstun.spring.repository.entity.User;
  *
  */
 public class UserMapperTests extends AbstractTestableContext {
-	public static final String ENTITY_NAME = "stunstunstun";
 
 	@Autowired
 	private UserMapper userMapper;
-	private User entity;
 
 	@Test
 	public void selectOne() {
-		User user = userMapper.selectOne(1L);
-		assertThat(user, notNullValue());
+		User entity = userMapper.findOne(1L);
+		assertThat(entity, notNullValue());
 	}
 
 	@Test
 	public void selectList() {
-		List<User> users = userMapper.selectList();
+		List<User> users = userMapper.findAll();
 		assertThat(users, notNullValue());
 	}
 
 	@Test
 	public void delete() {
-		User user = userMapper.selectByUserName(ENTITY_NAME);
-		userMapper.delete(user);
-
-		user = userMapper.selectByUserName(ENTITY_NAME);
-		assertThat(user, nullValue());
+		User entity = userMapper.findOne(1L);
+		userMapper.delete(entity);
+		assertThat(userMapper.exists(1L), is(false));
 	}
 
 	@Test
 	public void update() {
-		User user = userMapper.selectByUserName(ENTITY_NAME);
-		user.setUserName("peter");
+		User entity = userMapper.findOne(1L);
+		entity.setUserName("peter");
+		userMapper.update(entity);
 
-		userMapper.update(user);
-
-		User updatedUser = userMapper.selectByUserName("peter");
-		assertThat(user.getId(), is(updatedUser.getId()));
+		User updated = userMapper.findOne(1L);
+		assertThat(updated.getUserName(), is("peter"));
 	}
 }

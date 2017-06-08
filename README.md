@@ -23,12 +23,17 @@ A curated list of amazingly examples of Spring Boot, resources and shiny things.
 
 ## Tutorials
 
-Tutorials of how Spring Boot works!
+#### What happended before?
 
 Project | Build | Description |
 ---|---|----
 [spring-jdbc-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-jdbc-example) | Maven | Integrating Spring Framework with JDBC
 [spring-mybatis-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-mybatis-example) | Maven | Integrating Spring Framework with myBatis
+
+#### Afterwards Spring Boot works
+
+Project | Build | Description |
+---|---|----
 [spring-boot-jdbc-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-jdbc-example) | Gradle | Integrating Spring Boot with JDBC
 [spring-boot-jpa-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-jpa-example) | Gradle | Integrating Spring Boot with JPA
 [spring-boot-mybatis-example](https://github.com/stunstunstun/awesome-spring-boot/tree/master/spring-boot-mybatis-example)| Gradle | Integrating Spring Boot with myBatis

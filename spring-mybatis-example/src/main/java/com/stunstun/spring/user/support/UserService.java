@@ -2,6 +2,7 @@ package com.stunstun.spring.user.support;
 
 import java.util.List;
 
+import com.stunstun.spring.common.support.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,26 +20,33 @@ public class UserService {
 	private UserMapper userMapper;
 	
 	public List<User> getUsers() {
-		return userMapper.selectList();
+		return userMapper.findAll();
 	}
 	
 	public User getUser(Long id) {
-		return userMapper.selectOne(id);
+		User entity = userMapper.findOne(id);
+		if (entity == null)
+			throw new ResourceNotFoundException();
+		return entity;
 	}
 	
-	public User getUser(String userName) {
-		return userMapper.selectByUserName(userName);
+	public List<User> getUser(String userName) {
+		return userMapper.findByUserName(userName);
 	}
 	
 	public void addUser(User user) {
-		userMapper.insert(user);
+		userMapper.save(user);
 	}
 	
 	public void updateUser(User user) {
 		userMapper.update(user);
 	}
 	
-	public void deleteUser(User user) {
-		userMapper.delete(user);
+	public void deleteUser(Long id) {
+		User entity = this.getUser(id);
+		if (entity == null) {
+			throw new ResourceNotFoundException();
+		}
+		userMapper.delete(entity);
 	}
 }

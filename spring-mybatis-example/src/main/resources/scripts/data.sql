@@ -1,1 +1,1 @@
-INSERT INTO USER(USERNAME) VALUES ('stunstunstun')
+INSERT INTO USER(USER_NAME) VALUES ('stunstunstun')

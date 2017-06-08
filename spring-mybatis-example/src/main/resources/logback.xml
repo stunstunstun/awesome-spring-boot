@@ -7,9 +7,9 @@
 	    </encoder>
 	</appender>
  
-    <logger name="org.springframework" level="DEBUG" />
+    <logger name="org.springframework" level="INFO" />
  
- 	<logger name="com.stunstun" level="DEBUG" />
+ 	<logger name="com.stunstun.spring" level="DEBUG" />
  
     <root level="DEBUG">
         <appender-ref ref="STDOUT" />

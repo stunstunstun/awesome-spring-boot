@@ -5,8 +5,16 @@ package com.stunstun.spring.repository.entity;
  *
  */
 public class User {
+
 	private Long id;
+
 	private String userName;
+
+	protected User() {}
+
+	public User(String userName) {
+		this.userName = userName;
+	}
 
 	@Override
 	public boolean equals(Object other) {

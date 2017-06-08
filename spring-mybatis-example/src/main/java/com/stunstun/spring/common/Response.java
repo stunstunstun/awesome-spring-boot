@@ -1,6 +1,4 @@
-/**
- * 
- */
+
 package com.stunstun.spring.common;
 
 /**

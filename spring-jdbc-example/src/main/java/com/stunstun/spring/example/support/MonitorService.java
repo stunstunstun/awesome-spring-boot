@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.stunstun.spring.example.Status;
 
 /**
- * @author MinHyuckJung(chujinnoon@joycity.com)
+ * @author stunstun
  * @date 2012. 10. 17.
  */
 
