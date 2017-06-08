@@ -108,6 +108,8 @@ $ spring --version
 $ spring init --build=gradle --java-version=1.8 --dependencies=data-jpa spring-boot-jpa-example
 ```
 
+## You can do it in yourself!
+
 #### Spring Core
 - http://vojtechruzicka.com/field-dependency-injection-considered-harmful/
 
