@@ -2,7 +2,7 @@
 
 # <img src="http://stormpath.com/wp-content/uploads/2016/05/spring-boot-logo.jpg" width="50" align="absmiddle"/> Awesome Spring Boot
 
-[![Wercker](https://img.shields.io/wercker/ci/wercker/docs.svg)]() 
+[![Build Status](https://travis-ci.org/stunstunstun/awesome-spring-boot.svg?branch=master)](https://travis-ci.org/stunstunstun/awesome-spring-boot.svg)
 [![Wercker](https://img.shields.io/badge/spring--boot-1.5.3.RELEASE-brightgreen.svg)]()
 [![Wercker](https://img.shields.io/badge/java-8-brightgreen.svg)]()
 [![Wercker](https://img.shields.io/badge/gradle-3.5-brightgreen.svg)]()
