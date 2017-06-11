@@ -1,7 +1,6 @@
+# <img src="http://stormpath.com/wp-content/uploads/2016/05/spring-boot-logo.jpg" width="50" align="absmiddle"/> Awesome Spring Boot 
 
-
-# <img src="http://stormpath.com/wp-content/uploads/2016/05/spring-boot-logo.jpg" width="50" align="absmiddle"/> Awesome Spring Boot
-
+[![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 [![Build Status](https://travis-ci.org/stunstunstun/awesome-spring-boot.svg?branch=master)](https://travis-ci.org/stunstunstun/awesome-spring-boot)
 [![Wercker](https://img.shields.io/badge/spring--boot-1.5.3.RELEASE-brightgreen.svg)]()
 [![Wercker](https://img.shields.io/badge/java-8-brightgreen.svg)]()
