@@ -1,6 +1,10 @@
 
-package com.stunstun.spring.support;
+package com.stunstun.spring;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import java.io.UnsupportedEncodingException;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
@@ -17,7 +21,7 @@ import java.util.Base64;
  * make it harder for an attacker to replace the code with stubs that treat all
  * purchases as verified.
  */
-public class GoogleSecurity {
+public class Security {
 
     private static final int DEFAULT_KEY_SIZE = 2048;
 
@@ -39,6 +43,44 @@ public class GoogleSecurity {
     }
 
     /**
+     * Encrypt plain text by RSA algorithm
+     * @param plainText
+     * @param encodedPublicKey
+     * @return cipher text
+     * @throws NoSuchAlgorithmException
+     */
+    public static String encrypt(String plainText, byte[] encodedPublicKey) throws NoSuchAlgorithmException {
+        PublicKey publicKey = Security.generatePublicKey(encodedPublicKey);
+        try {
+            Cipher cipher = Cipher.getInstance(KEY_FACTORY_ALGORITHM);
+            cipher.init(Cipher.ENCRYPT_MODE, publicKey);
+            byte[] bytes = cipher.doFinal(plainText.getBytes(CHARSET));
+            return Base64.getEncoder().encodeToString(bytes);
+        } catch (NoSuchPaddingException | InvalidKeyException | UnsupportedEncodingException | IllegalBlockSizeException | BadPaddingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
+     * Decrypt cipher text by RSA algorithm
+     * @param cipherText
+     * @param encodedPrivateKey
+     * @return plain text
+     * @throws NoSuchAlgorithmException
+     */
+    public static String decrypt(String cipherText, byte[] encodedPrivateKey) throws NoSuchAlgorithmException {
+        PrivateKey privateKey = Security.generatePrivateKey(encodedPrivateKey);
+        try {
+            byte[] bytes = Base64.getDecoder().decode(cipherText);
+            Cipher cipher = Cipher.getInstance(KEY_FACTORY_ALGORITHM);
+            cipher.init(Cipher.DECRYPT_MODE, privateKey);
+            return new String(cipher.doFinal(bytes), CHARSET);
+        } catch (NoSuchPaddingException | InvalidKeyException | UnsupportedEncodingException | IllegalBlockSizeException | BadPaddingException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    /**
      * Create signature by signing
      * @param plainText the signed JSON string (signed, not encrypted)
      * @param encodedPrivateKey the base64-encoded private key to use for signing.
@@ -47,7 +89,7 @@ public class GoogleSecurity {
     public static String sign(String plainText, byte[] encodedPrivateKey) {
         try {
             Signature privateSignature = Signature.getInstance(SIGNATURE_ALGORITHM);
-            privateSignature.initSign(GoogleSecurity.generatePrivateKey(encodedPrivateKey));
+            privateSignature.initSign(Security.generatePrivateKey(encodedPrivateKey));
             privateSignature.update(plainText.getBytes(CHARSET));
             byte[] signature = privateSignature.sign();
             return Base64.getEncoder().encodeToString(signature);
@@ -66,14 +108,14 @@ public class GoogleSecurity {
      * @return result for verification
      */
     public static boolean verify(String plainText, String signature, byte[] encodedPublicKey) {
-        PublicKey publicKey = GoogleSecurity.generatePublicKey(encodedPublicKey);
-        return GoogleSecurity.verifySignarue(plainText, signature, publicKey);
+        PublicKey publicKey = Security.generatePublicKey(encodedPublicKey);
+        return Security.verifySignarue(plainText, signature, publicKey);
     }
 
-    private static PrivateKey generatePrivateKey(byte[] encodedKey) {
+    private static PublicKey generatePublicKey(byte[] encodedPublicKey) {
         try {
             KeyFactory keyFactory = KeyFactory.getInstance(KEY_FACTORY_ALGORITHM);
-            return keyFactory.generatePrivate(new PKCS8EncodedKeySpec(encodedKey));
+            return keyFactory.generatePublic(new X509EncodedKeySpec(encodedPublicKey));
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         } catch (InvalidKeySpecException e) {
@@ -81,10 +123,10 @@ public class GoogleSecurity {
         }
     }
 
-    private static PublicKey generatePublicKey(byte[] encodedKey) {
+    private static PrivateKey generatePrivateKey(byte[] encodedPrivateKey) {
         try {
             KeyFactory keyFactory = KeyFactory.getInstance(KEY_FACTORY_ALGORITHM);
-            return keyFactory.generatePublic(new X509EncodedKeySpec(encodedKey));
+            return keyFactory.generatePrivate(new PKCS8EncodedKeySpec(encodedPrivateKey));
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
         } catch (InvalidKeySpecException e) {
@@ -99,7 +141,7 @@ public class GoogleSecurity {
             sig.initVerify(publicKey);
             sig.update(plainText.getBytes());
             if (!sig.verify(Base64.getDecoder().decode(signature)))
-                throw new GoogleSecurityException("It was awesome! Signature hasn't be invalid");
+                throw new InvalidSignatureException("It was awesome! Signature hasn't be invalid");
         } catch (NoSuchAlgorithmException | InvalidKeyException | SignatureException e) {
             throw new RuntimeException(e);
         }
@@ -107,9 +149,9 @@ public class GoogleSecurity {
     }
 }
 
-class GoogleSecurityException extends RuntimeException {
+class InvalidSignatureException extends RuntimeException {
 
-    GoogleSecurityException(String message) {
+    InvalidSignatureException(String message) {
         super(message);
     }
 }

@@ -18,15 +18,18 @@ public class User {
 
     private String userName;
 
+    private String field;
+
     protected User() {}
 
-    public User(Long id, String userName) {
+    public User(Long id, String userName, String field) {
         this.id = id;
         this.userName = userName;
+        this.field = field;
     }
 
     public User(String userName) {
-        this(0L, userName);
+        this(0L, userName, "none");
     }
 
     @Override
@@ -49,7 +52,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "id[" + this.id + "] userName[" + this.userName + "]";
+        return "id[" + this.id + "] userName[" + this.userName + "]@" + this.hashCode();
     }
 
     public Long getId() {
@@ -66,5 +69,13 @@ public class User {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getField() {
+        return field;
+    }
+
+    public void setField(String field) {
+        this.field = field;
     }
 }

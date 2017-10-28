@@ -40,9 +40,7 @@ public class UserRepositoryTests {
     @Test
     public void findByUserName() {
         Iterable<User> users = userRepository.findByUserName("stunstunstun");
-        users.forEach(user -> {
-            assertThat(user.getUserName()).isNotEmpty();
-        });
+        users.forEach(user -> assertThat(user.getUserName()).isNotEmpty());
     }
 
     @Test

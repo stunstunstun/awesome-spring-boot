@@ -16,8 +16,7 @@ def vJavaLang = '1.8'
 def javaProject = [project(':common'), project(':domain'), project(':api'), project(':admin')]
 def webProject = [project(':api'), project(':admin')]
 
-println GradleVersion.current()
-println "System JVM Location = " + System.getProperty("java.home")
+println "JVM Home Location = " + System.getProperty("java.home")
 println "Project JVM Version = ${vJavaLang}"
 
 configure(allprojects) {
@@ -29,7 +28,7 @@ configure(allprojects) {
 	         containers.remove('org.eclipse.jdt.launching.JRE_CONTAINER')
 	         containers 'org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8'
 	    }
-	}	
+	}
 }
 
 configure(javaProject) {
@@ -62,4 +61,8 @@ configure(webProject) {
         	minusConfigurations += [ configurations.crosstest ]
         }	
 	}	
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '4.2.1'
 }

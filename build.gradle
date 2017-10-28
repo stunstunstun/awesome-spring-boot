@@ -10,13 +10,13 @@ buildscript {
     }
 }
 
-wrapper.gradleVersion = '3.5'
-
 configure(subprojects) {
     apply plugin: 'java'
     apply plugin: 'jacoco'
     apply plugin: 'org.springframework.boot'
 
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
     ext.jacocoVersion = '0.7.6.201602180812'
 
     repositories {
@@ -46,4 +46,8 @@ configure(subprojects) {
             sourceSets sourceSets.main
         }
     }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.2.1'
 }

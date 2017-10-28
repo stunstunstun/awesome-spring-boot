@@ -1,6 +1,5 @@
 buildscript {
     ext {
-        javaLangVersion = '1.8'
         springBootVersion = '1.5.3.RELEASE'
     }
     repositories {
@@ -15,8 +14,6 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
-
-sourceCompatibility = javaLangVersion
 
 repositories {
     mavenCentral()

@@ -1,5 +1,6 @@
 package com.stunstun.spring.domain;
 
+import com.google.common.collect.Lists;
 import com.stunstun.spring.AbstractDataJpaTest;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,10 +18,7 @@ public class UserRepositoryTests extends AbstractDataJpaTest {
     @Test
     public void findAll() {
         Iterable<User> users = userRepository.findAll();
-        users.forEach(user -> {
-            System.out.println(user);
-            assertThat(user.getUserName()).isNotEmpty();
-        });
+        assertThat(Lists.newArrayList(users).size()).isEqualTo(10);
     }
 
     @Test
@@ -32,9 +30,7 @@ public class UserRepositoryTests extends AbstractDataJpaTest {
     @Test
     public void findByUserName() {
         Iterable<User> users = userRepository.findByUserName("stunstunstun");
-        users.forEach(user -> {
-            assertThat(user.getUserName()).isNotEmpty();
-        });
+        users.forEach(user -> assertThat(user.getUserName()).isNotEmpty());
     }
 
     @Test
