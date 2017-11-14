@@ -1,8 +1,0 @@
-springBoot {
-    mainClass = 'com.stunstun.spring.AdminApplication'
-}
-
-dependencies {
-    compile project(':domain')
-    compile('org.springframework.boot:spring-boot-starter-web')
-}
