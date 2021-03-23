@@ -149,3 +149,6 @@ $ spring init --build=gradle --java-version=1.8 --dependencies=data-jpa spring-b
 #### Deploy To AWS, Cloud Foundry
 - https://docs.spring.io/spring-boot/docs/current/reference/html/howto-traditional-deployment.html
 - https://docs.spring.io/spring-boot/docs/current/reference/html/cloud-deployment.html
+
+#### Spring Boot Book
+- https://www.manning.com/books/spring-boot-in-practice
